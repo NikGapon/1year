@@ -193,7 +193,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             hPen = CreatePen(PS_SOLID, 1, RGB(254, 254, 34));
             SelectObject(hdc, hPen);
             Ellipse(hdc, 10, 10, 110, 110);
-
             hPen = CreatePen(PS_SOLID, 2, RGB(0, 127, 0));
             SelectObject(hdc, hPen);
 
@@ -218,6 +217,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 }
             }
 
+            hBrush = CreateHatchBrush(HS_CROSS, RGB(255, 255, 255));
+            SelectObject(hdc, hBrush);
+            hPen = CreatePen(PS_SOLID, 20, RGB(192, 192, 192));
+            SelectObject(hdc, hPen);
+            MoveToEx(hdc, 100, 150, NULL);
+            LineTo(hdc, 75, 200);
+            LineTo(hdc, 100, 250);
+            LineTo(hdc, 125, 200);
+            LineTo(hdc, 100, 150);
             EndPaint(hWnd, &ps);
         }
         break;
