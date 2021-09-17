@@ -197,6 +197,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             hPen = CreatePen(PS_SOLID, 2, RGB(0, 127, 0));
             SelectObject(hdc, hPen);
 
+            DeleteObject(hPen);
+            DeleteObject(hBrush);
+            {
+                int con = 0;
+                int x = 0;
+                int y = 525;
+
+                hPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
+                SelectObject(hdc, hPen);
+                while (con < 30) {
+                    MoveToEx(hdc, x, y, NULL);
+                    LineTo(hdc, x, y-75);
+                    LineTo(hdc, x+25, y - 100);
+                    LineTo(hdc, x + 50, y - 75);
+                    LineTo(hdc, x + 50, y);
+                    LineTo(hdc, x, y);
+                    x = x + 50;
+                    con++;
+                }
+            }
+
             EndPaint(hWnd, &ps);
         }
         break;
