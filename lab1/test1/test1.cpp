@@ -149,6 +149,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             HDC hdc = BeginPaint(hWnd, &ps);
             HPEN hPen;
+            HBRUSH hBrush;
             // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
             MoveToEx(hdc, 100, 400, NULL);
             LineTo(hdc, 250, 250);
@@ -186,6 +187,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             Ellipse(hdc, 450, 250, 550, 350);
             DeleteObject(hPen);
 
+            hBrush = CreateHatchBrush(HS_CROSS, RGB(254, 254, 34));
+            SelectObject(hdc, hBrush);
+
+            hPen = CreatePen(PS_SOLID, 1, RGB(254, 254, 34));
+            SelectObject(hdc, hPen);
+            Ellipse(hdc, 10, 10, 110, 110);
+
+            hPen = CreatePen(PS_SOLID, 2, RGB(0, 127, 0));
+            SelectObject(hdc, hPen);
 
             EndPaint(hWnd, &ps);
         }
