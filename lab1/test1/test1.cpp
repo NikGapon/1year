@@ -285,10 +285,54 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 
 
+            hBrush = CreateHatchBrush(HS_CROSS, RGB(255, 255, 255));
+            SelectObject(hdc, hBrush);
 
             hPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
             SelectObject(hdc, hPen);
             
+
+
+
+
+
+            {
+                int con = 0;
+                int x1 = 600;
+                int y1 = 275;
+                int x2 = 650;
+                int y2 = 150;
+                
+                while (con < 60) {
+                    MoveToEx(hdc, x1, y1, NULL);
+
+                    LineTo(hdc, x2, y2);
+                    x1 = x1 + 1;
+                    x2 = x2 + 1;
+                    y1 = y1 + 1;
+                    y2 = y2 + 1;
+                    con++;
+                }
+            }
+            {
+                int con = 0;
+                int x1 = 665;
+                int y1 = 165;
+                int x2 = 715;
+                int y2 = 40;
+
+                while (con < 30) {
+                    MoveToEx(hdc, x1, y1, NULL);
+
+                    LineTo(hdc, x2, y2);
+                    x1 = x1 + 1;
+                    x2 = x2 + 1;
+                    y1 = y1 + 1;
+                    y2 = y2 + 1;
+                    con++;
+                }
+            }
+
             EndPaint(hWnd, &ps);
         }
         break;
