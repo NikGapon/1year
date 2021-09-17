@@ -226,6 +226,69 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             LineTo(hdc, 100, 250);
             LineTo(hdc, 125, 200);
             LineTo(hdc, 100, 150);
+
+            DeleteObject(hPen);
+            DeleteObject(hBrush);
+
+
+            hBrush = CreateSolidBrush(RGB(134, 240, 241));
+            SelectObject(hdc, hBrush);
+            hPen = CreatePen(PS_SOLID, 1, RGB(134, 240, 241));
+            SelectObject(hdc, hPen);
+            Ellipse(hdc, 200, 20, 500, 100);
+
+            Ellipse(hdc, 225, 18, 250, 35);
+
+            {
+                int con = 0;
+                int x1 = 225;
+                int y1 = 18;
+                int x2 = 287;
+                int y2 = 47;
+
+                while (con < 6) {
+                    Ellipse(hdc, x1, y1, x2, y2);
+                    x1 = x1 + 40;
+                    x2 = x2 + 40;
+                    con++;
+                }
+            }
+            {
+                int con = 0;
+                int x1 = 225;
+                int y1 = 80;
+                int x2 = 287;
+                int y2 = 110;
+
+                while (con < 5) {
+                    Ellipse(hdc, x1, y1, x2, y2);
+                    x1 = x1 + 40;
+                    x2 = x2 + 40;
+                    con++;
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            hPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
+            SelectObject(hdc, hPen);
+            
             EndPaint(hWnd, &ps);
         }
         break;
