@@ -332,6 +332,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     con++;
                 }
             }
+            
+            hPen = CreatePen(PS_SOLID, 7, RGB(226, 88, 34));
+            SelectObject(hdc, hPen);
+            MoveToEx(hdc, 630, 305, NULL);
+            LineTo(hdc, 600, 300);
+            MoveToEx(hdc, 630, 305, NULL);
+            LineTo(hdc, 600, 315);
+            MoveToEx(hdc, 630, 305, NULL);
+            LineTo(hdc, 600, 330);
+            MoveToEx(hdc, 630, 305, NULL);
+            LineTo(hdc, 610, 345);
+            MoveToEx(hdc, 630, 305, NULL);
+            LineTo(hdc, 630, 340);
+
+            hPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
+            SelectObject(hdc, hPen);
+
+            MoveToEx(hdc, 715, 40, NULL);
+            LineTo(hdc, 745, 40);
+            LineTo(hdc, 745, 70);
+
+
+            Ellipse(hdc, 715, 55, 735, 80);
 
             EndPaint(hWnd, &ps);
         }
