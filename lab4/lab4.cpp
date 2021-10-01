@@ -311,6 +311,16 @@ void recurs_troi2(HDC hdc, int cx, int cy, int size) {
     recurs_troi2(hdc, cx + size, cy, size / 2);
     recurs_troi2(hdc, cx - size, cy, size / 2);
 }
+void recurs_troi3(HDC hdc, int cx, int cy, int size) {
+    im3(hdc, cx, cy, size);
+    if (size < 20) {
+        return;
+    }
+    recurs_troi3(hdc, cx + size, cy, size / 2);
+    recurs_troi3(hdc, cx - size, cy, size / 2);
+    recurs_troi3(hdc, cx, cy - size, size / 2);
+    recurs_troi3(hdc, cx, cy + size, size / 2);
+}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -364,7 +374,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //recurklim2_5(hdc, 200, 200, 100);
 
             //recurs_troi(hdc, 200, 200, 100);
-            recurs_troi2(hdc, 200, 200, 100);
+            //recurs_troi2(hdc, 200, 200, 100);
+            //recurs_troi3(hdc, 200, 200, 100);
+
+
+
+
 
             EndPaint(hWnd, &ps);
         }
