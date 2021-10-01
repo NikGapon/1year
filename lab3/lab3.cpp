@@ -254,6 +254,17 @@ void line_logo(HDC hdc) {
         }
     }
 }
+void linever_Logo(HDC hdc) {
+    {
+        int y = 0;
+        while (y < 1100) {
+            Logo(hdc, 0, y);
+            y = y + 120;
+        }
+    }
+}
+
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -291,7 +302,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //line(hdc);
             //linever(hdc);
             //diag(hdc);
-            //riad(hdc);
+            //riad(hdc);    
 
 
             hPen = CreatePen(PS_SOLID, 2, RGB(128, 166, 255));
@@ -312,7 +323,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //Logo(hdc, 0, 0);
             //centr_logo(hdc);
             //line_logo(hdc);
-
+            //linever_Logo(hdc);
 
             DeleteObject(hPen);
             DeleteObject(hBrush);
