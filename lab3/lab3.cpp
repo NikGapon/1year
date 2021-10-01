@@ -227,7 +227,15 @@ void Sneg(HDC hdc, int x, int y) {
     LineTo(hdc, 70 + x, 0 + y);
     MoveToEx(hdc, 60 + x, 10 + y, NULL);
 }
+void Logo(HDC hdc, int x, int y) {
+            
+            MoveToEx(hdc, 25 + x, 0 + y, NULL);
+            LineTo(hdc, 0 + x, 50 + y);
+            LineTo(hdc, 25 + x, 100 + y);
+            LineTo(hdc, 50 + x, 50 + y);
+            LineTo(hdc, 25 + x , 0 + y);
 
+}
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -254,7 +262,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             HPEN hPen;
-            
+
+            HBRUSH hBrush;
             // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
             hPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
             SelectObject(hdc, hPen);
@@ -271,6 +280,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             SelectObject(hdc, hPen);
             //Sneg(hdc, 0, 0);
 
+
+            DeleteObject(hPen);
+            
+
+
+            hBrush = CreateHatchBrush(HS_CROSS, RGB(255, 255, 255));
+            SelectObject(hdc, hBrush);
+            hPen = CreatePen(PS_SOLID, 20, RGB(192, 192, 192));
+            SelectObject(hdc, hPen);
+
+
+            //Logo(hdc, 0, 0);
+
+            DeleteObject(hPen);
+            DeleteObject(hBrush);
 
             EndPaint(hWnd, &ps);
         }
