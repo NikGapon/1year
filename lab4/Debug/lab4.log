@@ -1,3 +1,2 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(495,5): warning MSB8003: свойство WindowsSDKDir не определено. Возможно, не найдены некоторые средства сборки.
-  lab4.cpp
-D:\Yandex_luc\vus\1\1year\lab4\targetver.h(6,10): fatal error C1083: Не удается открыть файл включение: SDKDDKVer.h: No such file or directory,
+﻿  lab4.cpp
+  lab4.vcxproj -> D:\Yandex_luc\vus\1\1year\lab4\Debug\lab4.exe

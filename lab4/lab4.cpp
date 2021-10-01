@@ -274,6 +274,33 @@ void recurklim2_5(HDC hdc, int cx, int cy, int size) {
     recurklim2_5(hdc, cx - size, cy + size, size / 2);
     recurklim2_5(hdc, cx + size, cy + size, size / 2);
 }
+
+void im3(HDC hdc, int cx, int cy, int size) {
+    int x1 = cx;
+    int y1 = cy - size;
+
+    int x2 = cx + size;
+    int y2 = cy;
+
+    int x3 = cx;
+    int y3 = cy + size;
+
+    int x4 = cx - size;
+    int y4 = cy;
+
+    MoveToEx(hdc, x1, y1, NULL);
+    LineTo(hdc, x2, y2);
+    LineTo(hdc, x3, y3);
+    LineTo(hdc, x4, y4);
+    LineTo(hdc, x1, y1);
+}
+void recurs_troi(HDC hdc, int cx, int cy, int size) {
+    im3(hdc, cx, cy, size);
+    if (size < 20) {
+        return;
+    }
+    recurs_troi(hdc, cx + size, cy, size / 2);
+}
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -323,7 +350,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //recurklim2_2(hdc, 200, 200, 100);
             //recurklim2_3(hdc, 200, 200, 100);
             //recurklim2_4(hdc, 200, 200, 100);
-            recurklim2_5(hdc, 200, 200, 100);
+            //recurklim2_5(hdc, 200, 200, 100);
+
+            //recurs_troi(hdc, 200, 200, 100);
+
+
             EndPaint(hWnd, &ps);
         }
         break;
