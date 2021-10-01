@@ -264,6 +264,17 @@ void linever_Logo(HDC hdc) {
     }
 }
 
+void diag_Logo(HDC hdc) {
+    {
+        int y = 0;
+        int x = 0;
+        while (y < 1100) {
+            Logo(hdc, x, y);
+            x = x + 50;
+            y = y + 80;
+        }
+    }
+}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -324,6 +335,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //centr_logo(hdc);
             //line_logo(hdc);
             //linever_Logo(hdc);
+            //diag_Logo(hdc);
+
+
 
             DeleteObject(hPen);
             DeleteObject(hBrush);
