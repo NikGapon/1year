@@ -236,6 +236,14 @@ void Logo(HDC hdc, int x, int y) {
             LineTo(hdc, 25 + x , 0 + y);
 
 }
+void centr_logo(HDC hdc) {
+    Logo(hdc, 0, 0);
+    Logo(hdc, 1380, 0);
+    Logo(hdc, 0, 620);
+    Logo(hdc, 1380, 620);
+    Logo(hdc, 700, 310);
+
+}
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -292,6 +300,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 
             //Logo(hdc, 0, 0);
+            //centr_logo(hdc);
 
             DeleteObject(hPen);
             DeleteObject(hBrush);
