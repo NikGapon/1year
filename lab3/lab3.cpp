@@ -275,6 +275,22 @@ void diag_Logo(HDC hdc) {
         }
     }
 }
+void riad_Logo(HDC hdc) {
+    {
+        int y = 0;
+        int x = 0;
+        while (y < 1100) {
+
+
+            while (x < 1000) {
+                Logo(hdc, x, y);
+                x = x + 70;
+            }
+            x = 0;
+            y = y + 120;
+        }
+    }
+}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -336,7 +352,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //line_logo(hdc);
             //linever_Logo(hdc);
             //diag_Logo(hdc);
-
+            //riad_Logo(hdc);
 
 
             DeleteObject(hPen);
