@@ -429,6 +429,30 @@ void recurs_krug3(HDC hdc, int cx, int cy, int size) {
     recurs_krug3(hdc, cx - size / 2, cy - size / 2, size / 2);
 }
 
+
+void im7(HDC hdc, int cx, int cy, int size) {
+    int x1 = cx - size / 2;
+    int y1 = cy + size /2 ;
+
+    int x2 = cx - size;
+    int y2 = cy;
+
+    int x3 = cx;
+    int y3 = cy;
+
+    int x4 = cx;
+    int y4 = cy + size;
+
+    int x5 = cx;
+    int y5 = cy + size;
+
+    MoveToEx(hdc, x1, y1, NULL);
+    LineTo(hdc, x2, y2);
+    LineTo(hdc, x3, y3);
+    LineTo(hdc, x4, y4);
+    LineTo(hdc, x1, y1);
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -490,7 +514,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //recurs_krug2(hdc, 200, 200, 100);
 
             //recurs_krug3(hdc, 200, 200, 100);
-
+            im7(hdc, 200, 200, 100);
 
             EndPaint(hWnd, &ps);
         }
