@@ -321,6 +321,70 @@ void recurs_troi3(HDC hdc, int cx, int cy, int size) {
     recurs_troi3(hdc, cx, cy - size, size / 2);
     recurs_troi3(hdc, cx, cy + size, size / 2);
 }
+void im4(HDC hdc, int cx, int cy, int size) {
+    int x1 = cx;
+    int y1 = cy - size;
+
+    int x2 = cx + size / 4;
+    int y2 = cy - size / 4;
+
+    int x3 = cx + size;
+    int y3 = cy;
+
+    int x4 = cx + size / 4;
+    int y4 = cy + size / 4;
+
+    int x5 = cx;
+    int y5 = cy + size;
+
+    MoveToEx(hdc, x1, y1, NULL);
+    LineTo(hdc, x2, y2);
+    LineTo(hdc, x3, y3);
+    LineTo(hdc, x4, y4);
+    LineTo(hdc, x1, y1);
+}
+void im5(HDC hdc, int cx, int cy, int size) {
+    int x1 = cx - size / 2;
+    int y1 = cy;
+
+    int x2 = cx - size;
+    int y2 = cy + size / 2;
+
+    int x3 = cx + size / 2;
+    int y3 = cy + size / 2;
+
+    int x4 = cx + size;
+    int y4 = cy;
+
+    int x5 = cx;
+    int y5 = cy + size;
+
+    MoveToEx(hdc, x1, y1, NULL);
+    LineTo(hdc, x2, y2);
+    LineTo(hdc, x3, y3);
+    LineTo(hdc, x4, y4);
+    LineTo(hdc, x1, y1);
+}
+
+
+void recurs_kvadr(HDC hdc, int cx, int cy, int size) {
+    im5(hdc, cx, cy, size);
+    if (size < 20) {
+        return;
+    }
+    recurs_kvadr(hdc, cx + size, cy, size / 2);
+}
+
+void recurs_kvadr2(HDC hdc, int cx, int cy, int size) {
+    im5(hdc, cx, cy, size);
+    if (size < 20) {
+        return;
+    }
+    recurs_kvadr2(hdc, cx + size / 2, cy + size / 2, size / 2);
+    recurs_kvadr2(hdc, cx - size / 2, cy + size / 2, size / 2);
+    recurs_kvadr2(hdc, cx + size / 2, cy - size / 2, size / 2);
+    recurs_kvadr2(hdc, cx - size / 2, cy - size / 2, size / 2);
+}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -377,8 +441,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //recurs_troi2(hdc, 200, 200, 100);
             //recurs_troi3(hdc, 200, 200, 100);
 
-
-
+            //recurs_kvadr(hdc, 200, 200, 100);
+            //recurs_kvadr2(hdc, 200, 200, 100);
 
 
             EndPaint(hWnd, &ps);
