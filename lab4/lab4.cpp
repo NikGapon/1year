@@ -386,6 +386,49 @@ void recurs_kvadr2(HDC hdc, int cx, int cy, int size) {
     recurs_kvadr2(hdc, cx - size / 2, cy - size / 2, size / 2);
 }
 
+void im6(HDC hdc, int cx, int cy, int size) {
+    int x1 = cx - size;
+    int y1 = cy - size;
+    int x2 = cx + size;
+    int y2 = cy + size;
+    Ellipse(hdc, x1, y1, x2, y2);
+}
+
+void recurs_krug(HDC hdc, int cx, int cy, int size) {
+    im6(hdc, cx, cy, size);
+    if (size < 20) {
+        return;
+    }
+    recurs_krug(hdc, cx + size, cy, size / 2);
+
+}
+void recurs_krug2(HDC hdc, int cx, int cy, int size) {
+    im6(hdc, cx, cy, size);
+    if (size < 20) {
+        return;
+    }
+    recurs_krug2(hdc, cx + size, cy, size / 2);
+    recurs_krug2(hdc, cx - size, cy, size / 2);
+    recurs_krug2(hdc, cx, cy - size, size / 2);
+    recurs_krug2(hdc, cx, cy + size, size / 2);
+}
+
+void recurs_krug3(HDC hdc, int cx, int cy, int size) {
+    im6(hdc, cx, cy, size);
+    if (size < 20) {
+        return;
+    }
+    recurs_krug3(hdc, cx + size, cy, size / 2);
+    recurs_krug3(hdc, cx - size, cy, size / 2);
+    recurs_krug3(hdc, cx, cy - size, size / 2);
+    recurs_krug3(hdc, cx, cy + size, size / 2);
+
+    recurs_krug3(hdc, cx + size / 2, cy + size / 2, size / 2);
+    recurs_krug3(hdc, cx - size / 2, cy + size / 2, size / 2);
+    recurs_krug3(hdc, cx + size / 2, cy - size / 2, size / 2);
+    recurs_krug3(hdc, cx - size / 2, cy - size / 2, size / 2);
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -443,6 +486,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             //recurs_kvadr(hdc, 200, 200, 100);
             //recurs_kvadr2(hdc, 200, 200, 100);
+            //recurs_krug(hdc, 200, 200, 100);
+            //recurs_krug2(hdc, 200, 200, 100);
+
+            //recurs_krug3(hdc, 200, 200, 100);
 
 
             EndPaint(hWnd, &ps);
