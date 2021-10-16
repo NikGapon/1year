@@ -364,6 +364,33 @@ void el(HDC hdc) {
     }
 }
 
+void was(HDC hdc) {
+    {
+        int y = 0;
+        int x = 500;
+        
+        int p = 0;
+        int k = 1;
+        int l = 0;
+        while (y < 1100) {
+            p = (x - 50 * (k/3)) ;
+            
+            while (l < k) {
+                
+                Claus(hdc, p, y);
+                p = p + 50;
+                l = l + 1;
+
+            }
+            l = 0;
+            k = k * 3;
+            y = y + 80;
+            x = 500;
+            
+        }
+    }
+}
+
 void j(HDC hdc) {
     if (KArtin == 0) {
         f_gor(hdc);
@@ -382,6 +409,9 @@ void j(HDC hdc) {
     }
     if (KArtin == 6) {
         el(hdc);
+    }
+    if (KArtin == 7) {
+        was(hdc);
     }
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
