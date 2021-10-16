@@ -11,7 +11,7 @@
 HINSTANCE hInst;                                // текущий экземпляр
 WCHAR szTitle[MAX_LOADSTRING];                  // Текст строки заголовка
 WCHAR szWindowClass[MAX_LOADSTRING];            // имя класса главного окна
-int KArtin = 0;
+int KArtin = 5;
 
 // Отправить объявления функций, включенных в этот модуль кода:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -311,6 +311,59 @@ void f_ver(HDC hdc) {
         }
     }
 }
+void f_p(HDC hdc) {
+    {
+        int r = 0;
+        int x = 50;
+        int sizex = 10;
+        int y = 50;
+        int sizey = 0;
+        while (y < 2100) {
+            MyFigure(hdc, x, y, sizex, sizey, RGB(r, 0, 0));
+            y = y + 100;
+            x = x + 100;
+            sizex = sizex +1;
+            sizey = sizey + 1;
+
+
+
+            r += 20;
+        }
+    }
+}
+
+void Claus(HDC hdc, int x, int y) {
+
+
+
+    MoveToEx(hdc, 20 + x, 0 + y, NULL);
+    LineTo(hdc, 30 + x, 20 + y);
+    LineTo(hdc, 10 + x, 20 + y);
+    LineTo(hdc, 20 + x, 0 + y);
+
+    MoveToEx(hdc, 20 + x, 10 + y, NULL);
+    LineTo(hdc, 30 + x, 40 + y);
+    LineTo(hdc, 10 + x, 40 + y);
+    LineTo(hdc, 20 + x, 10 + y);
+
+    MoveToEx(hdc, 20 + x, 30 + y, NULL);
+    LineTo(hdc, 40 + x, 80 + y);
+    LineTo(hdc, 0 + x, 80 + y);
+    LineTo(hdc, 20 + x, 30 + y);
+
+}
+void el(HDC hdc) {
+    {
+        int y = 0;
+        int x = 0;
+        while (y < 1100) {
+            Claus(hdc, x, y);
+            x = x + 50;
+            y = y + 80;
+        }
+    }
+}
+
 void j(HDC hdc) {
     if (KArtin == 0) {
         f_gor(hdc);
@@ -325,7 +378,10 @@ void j(HDC hdc) {
         f_riad(hdc);
     }
     if (KArtin == 5) {
-        return j(hdc);
+        f_p(hdc);
+    }
+    if (KArtin == 6) {
+        el(hdc);
     }
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
