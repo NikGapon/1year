@@ -33,7 +33,7 @@ int a[N][M] = {
 { 0, 0, 1, 0, 0,   0, 0, 0, 0, 2,   0, 0, 0, 0, 0 },
 { 0, 0, 0, 0, 0,   0, 1, 0, 0, 0,   0, 2, 0, 0, 0 },
 { 0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 2, 0, 0, 0 },
-{ 0, 0, 1, 0, 1,   0, 0, 0, 0, 0,   0, 2, 0, 0, 0 }
+{ 0, 0, 1, 0, 1,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0 }
 };
 
 int steps = 0;
@@ -191,6 +191,23 @@ void UPST() {
     i++;
     }
 }
+
+void UPST_0() {
+    int i = 0;
+    while (i < N) {
+        int j = 0;
+        while (j < M) {
+            if (a[i][j] == 3) {
+                a[i - 1][j] = 0;
+                steps++;
+            }
+
+            j++;
+        }
+        i++;
+    }
+}
+
 
 
 void moveDown() {
@@ -377,6 +394,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             UPST();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
+        case VK_CAPITAL:
+            UPST_0();
+            InvalidateRect(hWnd, NULL, TRUE);
+            break;
+        
         }
         break;
 
