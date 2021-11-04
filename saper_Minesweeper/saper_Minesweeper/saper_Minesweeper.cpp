@@ -234,7 +234,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         y = GET_Y_LPARAM(lParam);
         cur_x = x / 31;
         cur_y = y / 31;
-        vis[cur_x][cur_y] = 0;
+        vis[cur_y][cur_x] = 0;
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_RBUTTONDOWN:
