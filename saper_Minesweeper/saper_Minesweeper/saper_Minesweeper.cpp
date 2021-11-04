@@ -85,9 +85,34 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     return (int) msg.wParam;
 }
 
+int sizeX = 30;
+int sizeY = 30;
+
+void draw(HDC hdc) {
+    i = 0;
+    j = 0;
+    HBRUSH hBrushEmptyCell; //создаём кисть для пустого поля
+    hBrushEmptyCell = CreateSolidBrush(RGB(200, 200, 200)); // серый
 
 
 
+    while (i < 9)
+    {
+        while (j < 9)
+        {
+            RECT rect = { j * sizeX + 1,i * sizeY + 1,  (j + 1) * sizeX, (i + 1) * sizeY };
+            if (vis[i][j] == -2) {
+                FillRect(hdc, &rect, hBrushEmptyCell);
+            }
+            j++;
+        }
+        j = 0;
+        i++;
+    }
+
+
+
+}
 //
 //  ФУНКЦИЯ: MyRegisterClass()
 //
@@ -178,7 +203,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
-                
+            draw(hdc);
             EndPaint(hWnd, &ps);
         }
         break;
