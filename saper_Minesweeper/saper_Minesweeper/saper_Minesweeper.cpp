@@ -92,6 +92,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 int sizeX = 30;
 int sizeY = 30;
 
+int cur_x, cur_y;
 void draw(HDC hdc) {
     i = 0;
     j = 0;
@@ -117,7 +118,7 @@ void draw(HDC hdc) {
         j = 0;
         i++;
     }
-
+    
     DeleteObject(hBrushEmptyTest);
     DeleteObject(hBrushEmptyCell);
 
@@ -231,7 +232,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_LBUTTONDOWN:
         x = GET_X_LPARAM(lParam);
         y = GET_Y_LPARAM(lParam);
-
+        cur_x = x / 31;
+        cur_y = y / 31;
+        vis[cur_x][cur_y] = 0;
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_RBUTTONDOWN:
