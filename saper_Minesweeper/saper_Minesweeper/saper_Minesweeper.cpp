@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 
-#define WM_LBUTTONDOWN       
+//#define WM_LBUTTONDOWN       
 
 #include <windowsx.h>
 #define MAX_LOADSTRING 100
@@ -226,6 +226,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
 
+
+
+    case WM_LBUTTONDOWN:
+        x = GET_X_LPARAM(lParam);
+        y = GET_Y_LPARAM(lParam);
+
+        InvalidateRect(hWnd, NULL, TRUE);
+        break;
+    case WM_RBUTTONDOWN:
+        x = GET_X_LPARAM(lParam);
+        y = GET_Y_LPARAM(lParam);
+
+        InvalidateRect(hWnd, NULL, TRUE);
+        break;
 
     case WM_KEYDOWN:
         switch (wParam)
