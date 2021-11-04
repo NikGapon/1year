@@ -6,25 +6,29 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+
+#define WM_LBUTTONDOWN       
+
+#include <windowsx.h>
 #define MAX_LOADSTRING 100
 
 #define N 9
 #define M 9
-
-int ser[N][M] = { 
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2},
-{-2, -2, -2, -2, -2, -2, -2, -2, -2}
+int x, y;
+int ser[N][M] = {
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 int vis[N][M] = { 
 {-2, -2, -2, -2, -2, -2, -2, -2, -2}, 
-{-2, -2, -2, -2, -2, -2, -2, -2, -2}, 
+{-2, -2, -2, -2, -2, -2, -2, -2, -2},   
 {-2, -2, -2, -2, -2, -2, -2, -2, -2}, 
 {-2, -2, -2, -2, -2, -2, -2, -2, -2}, 
 {-2, -2, -2, -2, -2, -2, -2, -2, -2}, 
@@ -93,7 +97,8 @@ void draw(HDC hdc) {
     j = 0;
     HBRUSH hBrushEmptyCell; //создаём кисть для пустого поля
     hBrushEmptyCell = CreateSolidBrush(RGB(200, 200, 200)); // серый
-
+    HBRUSH hBrushEmptyTest;
+    hBrushEmptyTest = CreateSolidBrush(RGB(255, 255, 25)); // серый
 
 
     while (i < 9)
@@ -104,11 +109,17 @@ void draw(HDC hdc) {
             if (vis[i][j] == -2) {
                 FillRect(hdc, &rect, hBrushEmptyCell);
             }
+            if (vis[i][j] == 0) {
+                FillRect(hdc, &rect, hBrushEmptyTest);
+            }
             j++;
         }
         j = 0;
         i++;
     }
+
+    DeleteObject(hBrushEmptyTest);
+    DeleteObject(hBrushEmptyCell);
 
 
 
@@ -177,44 +188,63 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - отправить сообщение о выходе и вернуться
 //
 //
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
     case WM_COMMAND:
+    {
+
+        int wmId = LOWORD(wParam);
+        // Разобрать выбор в меню:
+        switch (wmId)
         {
-            int wmId = LOWORD(wParam);
-            // Разобрать выбор в меню:
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
+        case IDM_ABOUT:
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+            break;
+        case IDM_EXIT:
+            DestroyWindow(hWnd);
+            break;
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
         }
-        break;
+    }
+    break;
     case WM_PAINT:
-        {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
-            draw(hdc);
-            EndPaint(hWnd, &ps);
-        }
-        break;
+    {
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+        // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
+        draw(hdc);
+        EndPaint(hWnd, &ps);
+    }
+    break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
-    }
+
+
+    case WM_KEYDOWN:
+        switch (wParam)
+        {
+        case VK_LBUTTON:
+            //x = GET_X_LPARAM(lParam);
+            //y = GET_Y_LPARAM(lParam);
+            vis[1][1] = 0;
+
+            InvalidateRect(hWnd, NULL, TRUE);
+            break;
+        
+        }
+        break;
+        
     return 0;
+    }
 }
+
 
 // Обработчик сообщений для окна "О программе".
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)

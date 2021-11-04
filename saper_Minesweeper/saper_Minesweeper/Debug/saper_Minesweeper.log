@@ -1,2 +1,5 @@
 ﻿  saper_Minesweeper.cpp
+D:\Yandex_luc\vus\1\1year\saper_Minesweeper\saper_Minesweeper\saper_Minesweeper.cpp(10,1): warning C4005: WM_LBUTTONDOWN: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(2253): message : см. предыдущее определение "WM_LBUTTONDOWN"
+D:\Yandex_luc\vus\1\1year\saper_Minesweeper\saper_Minesweeper\saper_Minesweeper.cpp(246): warning C4715: WndProc: значение возвращается не при всех путях выполнения
   saper_Minesweeper.vcxproj -> D:\Yandex_luc\vus\1\1year\saper_Minesweeper\Debug\saper_Minesweeper.exe
