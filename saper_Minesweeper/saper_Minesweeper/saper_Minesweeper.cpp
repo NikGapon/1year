@@ -128,7 +128,7 @@ void draw(HDC hdc) {
             if (vis[i][j] == 0) {
                 FillRect(hdc, &rect, hBrushEmptyOpen_0);
             }
-            if (vis[i][j] == -1) {
+            if (vis[i][j] == -3) {
                 FillRect(hdc, &rect, hBrushEmptyFLAG);
             }
             if (vis[i][j] == 1) {
@@ -176,6 +176,7 @@ void draw(HDC hdc) {
     DeleteObject(hBrushEmptyOpen_0);
     DeleteObject(hBrushEmptyNO_VIS);
     DeleteObject(hBrushEmptyFLAG);
+    DeleteObject(hBrushEmptyBoom);
 
 
 }
@@ -388,6 +389,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         y = GET_Y_LPARAM(lParam);
         cur_x = x / 31;
         cur_y = y / 31;
+        if (ser[cur_y][cur_x] == -1) {
+            vis[cur_y][cur_x] = -1;
+        }
         if (ser[cur_y][cur_x] == 0) {
             vis[cur_y][cur_x] = 0;
         }
@@ -423,11 +427,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         cur_x = x / 31;
         cur_y = y / 31;
 
-        if (vis[cur_y][cur_x] == -1){
-            vis[cur_y][cur_x] = -2;
+        if (vis[cur_y][cur_x] == -2){
+            vis[cur_y][cur_x] = -3;
         }
-        else if (vis[cur_y][cur_x] == -2) {
-            vis[cur_y][cur_x] = -1;
+        else {
+            if (vis[cur_y][cur_x] == -3) {
+                vis[cur_y][cur_x] = -2;
+            }
         }
         InvalidateRect(hWnd, NULL, TRUE);
         break;
