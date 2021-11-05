@@ -38,7 +38,7 @@ int vis[N][M] = {
 {-2, -2, -2, -2, -2, -2, -2, -2, -2} };
 int i = 0;
 int j = 0;
-
+int prov_genr = 0;
 
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
@@ -96,11 +96,12 @@ int cur_x, cur_y;
 void draw(HDC hdc) {
     i = 0;
     j = 0;
-    HBRUSH hBrushEmptyCell; //создаём кисть для пустого поля
-    hBrushEmptyCell = CreateSolidBrush(RGB(200, 200, 200)); // серый
-    HBRUSH hBrushEmptyTest;
-    hBrushEmptyTest = CreateSolidBrush(RGB(255, 255, 255)); // серый
-
+    HBRUSH hBrushEmptyNO_VIS; //создаём кисть для пустого поля
+    hBrushEmptyNO_VIS = CreateSolidBrush(RGB(200, 200, 200)); // закрытое поле
+    HBRUSH hBrushEmptyOpen_0;
+    hBrushEmptyOpen_0 = CreateSolidBrush(RGB(255, 255, 255));// открытое без мин в радиусе поле
+    HBRUSH hBrushEmptyFLAG;
+    hBrushEmptyFLAG = CreateSolidBrush(RGB(150, 200, 200)); // флагнутое поле
 
     while (i < 9)
     {
@@ -108,10 +109,13 @@ void draw(HDC hdc) {
         {
             RECT rect = { j * sizeX + 1,i * sizeY + 1,  (j + 1) * sizeX, (i + 1) * sizeY };
             if (vis[i][j] == -2) {
-                FillRect(hdc, &rect, hBrushEmptyCell);
+                FillRect(hdc, &rect, hBrushEmptyNO_VIS);
             }
             if (vis[i][j] == 0) {
-                FillRect(hdc, &rect, hBrushEmptyTest);
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+            }
+            if (vis[i][j] == -1) {
+                FillRect(hdc, &rect, hBrushEmptyFLAG);
             }
             j++;
         }
@@ -119,9 +123,9 @@ void draw(HDC hdc) {
         i++;
     }
     
-    DeleteObject(hBrushEmptyTest);
-    DeleteObject(hBrushEmptyCell);
-
+    DeleteObject(hBrushEmptyOpen_0);
+    DeleteObject(hBrushEmptyNO_VIS);
+    DeleteObject(hBrushEmptyFLAG);
 
 
 }
@@ -240,7 +244,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_RBUTTONDOWN:
         x = GET_X_LPARAM(lParam);
         y = GET_Y_LPARAM(lParam);
+        cur_x = x / 31;
+        cur_y = y / 31;
 
+        if (vis[cur_y][cur_x] == -1){
+            vis[cur_y][cur_x] = -2;
+        }
+        else if (vis[cur_y][cur_x] == -2) {
+            vis[cur_y][cur_x] = -1;
+        }
         InvalidateRect(hWnd, NULL, TRUE);
         break;
 
@@ -250,7 +262,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case VK_LBUTTON:
             //x = GET_X_LPARAM(lParam);
             //y = GET_Y_LPARAM(lParam);
-            vis[1][1] = 0;
+            //vis[1][1] = 0;
 
             InvalidateRect(hWnd, NULL, TRUE);
             break;
