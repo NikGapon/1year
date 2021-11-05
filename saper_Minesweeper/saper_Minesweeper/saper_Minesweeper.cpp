@@ -115,7 +115,8 @@ void draw(HDC hdc) {
     hBrushEmptyOpen_0 = CreateSolidBrush(RGB(255, 255, 255));// открытое без мин в радиусе поле
     HBRUSH hBrushEmptyFLAG;
     hBrushEmptyFLAG = CreateSolidBrush(RGB(150, 200, 200)); // флагнутое поле
-
+    HBRUSH hBrushEmptyBoom;
+    hBrushEmptyBoom = CreateSolidBrush(RGB(0, 0, 0)); // бомба
     while (i < 9)
     {
         while (j < 9)
@@ -130,12 +131,48 @@ void draw(HDC hdc) {
             if (vis[i][j] == -1) {
                 FillRect(hdc, &rect, hBrushEmptyFLAG);
             }
+            if (vis[i][j] == 1) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "1", strlen("1"));
+            }
+            if (vis[i][j] == 2) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "2", strlen("2"));
+            }
+            if (vis[i][j] == 3) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "3", strlen("3"));
+            }
+            if (vis[i][j] == 4) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "4", strlen("4"));
+            }
+            if (vis[i][j] == 5) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "5", strlen("5"));
+            }
+            if (vis[i][j] == 6) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "6", strlen("6"));
+            }
+            if (vis[i][j] == 7) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "7", strlen("7"));
+            }
+            if (vis[i][j] == 8) {
+                FillRect(hdc, &rect, hBrushEmptyOpen_0);
+                TextOutA(hdc, j * sizeX + 11, i * sizeY + 8, "8", strlen("8"));
+            }
+            if (vis[i][j] == -1) {
+                FillRect(hdc, &rect, hBrushEmptyBoom);
+                
+            }
             j++;
         }
         j = 0;
         i++;
     }
-    
+    DeleteObject(TextOutA);
     DeleteObject(hBrushEmptyOpen_0);
     DeleteObject(hBrushEmptyNO_VIS);
     DeleteObject(hBrushEmptyFLAG);
@@ -329,6 +366,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hWnd, &ps);
+        if (prov_genr == 0) {
+            gener();
+            prov_genr = 1;
+        }
         // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
         draw(hdc);
         EndPaint(hWnd, &ps);
@@ -349,6 +390,30 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         cur_y = y / 31;
         if (ser[cur_y][cur_x] == 0) {
             vis[cur_y][cur_x] = 0;
+        }
+        if (ser[cur_y][cur_x] == 1) {
+            vis[cur_y][cur_x] = 1;
+        }
+        if (ser[cur_y][cur_x] == 2) {
+            vis[cur_y][cur_x] = 2;
+        }
+        if (ser[cur_y][cur_x] == 3) {
+            vis[cur_y][cur_x] = 3;
+        }
+        if (ser[cur_y][cur_x] == 4) {
+            vis[cur_y][cur_x] = 4;
+        }
+        if (ser[cur_y][cur_x] == 5) {
+            vis[cur_y][cur_x] = 5;
+        }
+        if (ser[cur_y][cur_x] == 6) {
+            vis[cur_y][cur_x] = 6;
+        }
+        if (ser[cur_y][cur_x] == 7) {
+            vis[cur_y][cur_x] = 7;
+        }
+        if (ser[cur_y][cur_x] == 8) {
+            vis[cur_y][cur_x] = 8;
         }
         InvalidateRect(hWnd, NULL, TRUE);
         break;
