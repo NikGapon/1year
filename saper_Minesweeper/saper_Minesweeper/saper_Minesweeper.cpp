@@ -26,6 +26,17 @@ int ser[N][M] = {
 {0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
+int ser_pr[N][M] = {
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0},
+{0, 0, 0, 0, 0, 0, 0, 0, 0}
+};
 int vis[N][M] = { 
 {-2, -2, -2, -2, -2, -2, -2, -2, -2}, 
 {-2, -2, -2, -2, -2, -2, -2, -2, -2},   
@@ -133,6 +144,7 @@ void draw(HDC hdc) {
 }
 int minazdes;
 int chek_1, chek_2, chek_3, chek_4, chek_5, chek_6, chek_7, chek_8;
+int chek_aoe;
 void gener(){
     srand(time(NULL));
     i = 0;
@@ -143,8 +155,8 @@ void gener(){
         {
             if ((ser[i][j] == 0) and (min > 0)) {
                 minazdes = rand();
-                if ((minazdes / 10) < 1000) {
-                    ser[i][j] == -1;
+                if ((minazdes / 10) < 100) {
+                    ser[i][j] = -1;
                     min--;
                 }
             }
@@ -155,17 +167,34 @@ void gener(){
         i++;
     }
 
-    i = 1;
-    j = 1;
+    i = 0;
+    j = 0;
     if (min > 0) {
         gener();
     }
     else {
+        
+
+        while (i < 9)
+        {
+            while (j < 9)
+            {
+                ser_pr[i][j] = ser[i][j];
+                
+                j++;
+            }
+            j = 0;
+            i++;
+        }
+        
+        i = 1;
+        j = 1;
         while (i < 8)
         {
             while (j < 8)
             {
-                if (ser[i][j] == 0) {
+                if ((ser[i][j] == 0) and (ser_pr[i][j] == 0)) {
+                    
                     chek_1 = ser[i-1][j-1];
                     chek_2 = ser[i-1][j];
                     chek_3 = ser[i-1][j+1];
@@ -174,6 +203,10 @@ void gener(){
                     chek_6 = ser[i+1][j-1];
                     chek_7 = ser[i+1][j];
                     chek_8 = ser[i+1][j+1];
+                    chek_aoe = (chek_1 + chek_2 + chek_3 + chek_4 + chek_5 + chek_6 + chek_7 + chek_8) / -1;
+                    if (chek_aoe > 0) {
+                        ser_pr[i][j] = chek_aoe;
+                    }
                 }
 
                 j++;
@@ -183,6 +216,20 @@ void gener(){
         }
         i = 0;
         j = 0;
+        while (i < 9)
+        {
+            while (j < 9)
+            {
+                ser[i][j] = ser_pr[i][j];
+
+                j++;
+            }
+            j = 0;
+            i++;
+        }
+        i = 0;
+        j = 0;
+
     }
 }
 //
@@ -300,7 +347,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         y = GET_Y_LPARAM(lParam);
         cur_x = x / 31;
         cur_y = y / 31;
-        vis[cur_y][cur_x] = 0;
+        if (ser[cur_y][cur_x] == 0) {
+            vis[cur_y][cur_x] = 0;
+        }
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_RBUTTONDOWN:
@@ -322,7 +371,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         switch (wParam)
         {
         case VK_TAB:
-            min = 10;
             gener();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
