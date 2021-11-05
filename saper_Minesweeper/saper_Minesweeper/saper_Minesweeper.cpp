@@ -39,6 +39,8 @@ int vis[N][M] = {
 int i = 0;
 int j = 0;
 int prov_genr = 0;
+int min = 10;
+
 
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
@@ -155,6 +157,12 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     return RegisterClassExW(&wcex);
 }
 
+
+
+
+
+
+
 //
 //   ФУНКЦИЯ: InitInstance(HINSTANCE, int)
 //
@@ -259,11 +267,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_KEYDOWN:
         switch (wParam)
         {
-        case VK_LBUTTON:
-            //x = GET_X_LPARAM(lParam);
-            //y = GET_Y_LPARAM(lParam);
-            //vis[1][1] = 0;
+        case VK_TAB:
+            i = 0;
+            j = 0;
+            while (i < 9)
+            {
+                while (j < 9)
+                {
 
+                
+                j++;
+                }
+            j = 0;
+            i++;
+            }
+            i = 0;
+            j = 0;
             InvalidateRect(hWnd, NULL, TRUE);
             break;
         
