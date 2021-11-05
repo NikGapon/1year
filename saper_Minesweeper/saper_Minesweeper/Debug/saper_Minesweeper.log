@@ -1,3 +1,6 @@
 ﻿  saper_Minesweeper.cpp
-D:\Yandex_luc\vus\1\1year\saper_Minesweeper\saper_Minesweeper\saper_Minesweeper.cpp(291): warning C4715: WndProc: значение возвращается не при всех путях выполнения
+D:\Yandex_luc\vus\1\1year\saper_Minesweeper\saper_Minesweeper\saper_Minesweeper.cpp(136,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\Yandex_luc\vus\1\1year\saper_Minesweeper\saper_Minesweeper\saper_Minesweeper.cpp(146,31): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
+D:\Yandex_luc\vus\1\1year\saper_Minesweeper\saper_Minesweeper\saper_Minesweeper.cpp(145,44): warning C4390: ";": обнаружен пустой контролируемый оператор; это правильно?
+D:\Yandex_luc\vus\1\1year\saper_Minesweeper\saper_Minesweeper\saper_Minesweeper.cpp(309): warning C4715: WndProc: значение возвращается не при всех путях выполнения
   saper_Minesweeper.vcxproj -> D:\Yandex_luc\vus\1\1year\saper_Minesweeper\Debug\saper_Minesweeper.exe

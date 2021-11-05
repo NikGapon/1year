@@ -11,7 +11,7 @@
 
 #include <windowsx.h>
 #define MAX_LOADSTRING 100
-
+#include <time.h>
 #define N 9
 #define M 9
 int x, y;
@@ -73,7 +73,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
-
+    
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_SAPERMINESWEEPER));
 
     MSG msg;
@@ -130,6 +130,60 @@ void draw(HDC hdc) {
     DeleteObject(hBrushEmptyFLAG);
 
 
+}
+int minazdes;
+int chek_1, chek_2, chek_3, chek_4, chek_5, chek_6, chek_7, chek_8;
+void gener(){
+    srand(time(NULL));
+    i = 0;
+    j = 0;
+    while (i < 9)
+    {
+        while (j < 9)
+        {
+            if ((ser[i][j] == 0) and (min > 0)) {
+                minazdes = rand();
+                if ((minazdes / 10) < 1000) {
+                    ser[i][j] == -1;
+                    min--;
+                }
+            }
+
+            j++;
+        }
+        j = 0;
+        i++;
+    }
+
+    i = 1;
+    j = 1;
+    if (min > 0) {
+        gener();
+    }
+    else {
+        while (i < 8)
+        {
+            while (j < 8)
+            {
+                if (ser[i][j] == 0) {
+                    chek_1 = ser[i-1][j-1];
+                    chek_2 = ser[i-1][j];
+                    chek_3 = ser[i-1][j+1];
+                    chek_4 = ser[i][j-1];
+                    chek_5 = ser[i][j+1];
+                    chek_6 = ser[i+1][j-1];
+                    chek_7 = ser[i+1][j];
+                    chek_8 = ser[i+1][j+1];
+                }
+
+                j++;
+            }
+            j = 0;
+            i++;
+        }
+        i = 0;
+        j = 0;
+    }
 }
 //
 //  ФУНКЦИЯ: MyRegisterClass()
@@ -268,21 +322,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         switch (wParam)
         {
         case VK_TAB:
-            i = 0;
-            j = 0;
-            while (i < 9)
-            {
-                while (j < 9)
-                {
-
-                
-                j++;
-                }
-            j = 0;
-            i++;
-            }
-            i = 0;
-            j = 0;
+            min = 10;
+            gener();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
         
