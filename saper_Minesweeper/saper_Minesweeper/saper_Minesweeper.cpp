@@ -99,7 +99,7 @@ void draw(HDC hdc) {
     HBRUSH hBrushEmptyCell; //создаём кисть для пустого поля
     hBrushEmptyCell = CreateSolidBrush(RGB(200, 200, 200)); // серый
     HBRUSH hBrushEmptyTest;
-    hBrushEmptyTest = CreateSolidBrush(RGB(255, 255, 25)); // серый
+    hBrushEmptyTest = CreateSolidBrush(RGB(255, 255, 255)); // серый
 
 
     while (i < 9)
