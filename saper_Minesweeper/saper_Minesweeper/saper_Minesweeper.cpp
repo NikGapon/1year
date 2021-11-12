@@ -52,7 +52,6 @@ int i = 0;
 int j = 0;
 int prov_genr = 0;
 int min = 10;   
-int visualisah = 0;
 
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
@@ -185,16 +184,19 @@ int minazdes;
 int chek_1, chek_2, chek_3, chek_4, chek_5, chek_6, chek_7, chek_8;
 int chek_aoe;
 void gener(){
-    srand(time(NULL));
     i = 0;
     j = 0;
+
+    srand(time(NULL));
     while (i < 9)
     {
         while (j < 9)
         {
             if ((ser[i][j] == 0) and (min > 0)) {
+
+                //srand(time(NULL));
                 minazdes = rand();
-                if ((minazdes / 10) < 100) {
+                if ((minazdes / 100) < 10) {
                     ser[i][j] = -1;
                     min--;
                 }
@@ -226,11 +228,11 @@ void gener(){
             i++;
         }
         
-        i = 1;
-        j = 1;
-        while (i < 8)
+        i = 0;
+        j = 0;
+        while (i < 9)
         {
-            while (j < 8)
+            while (j < 9)
             {
                 if ((ser[i][j] == 0) and (ser_pr[i][j] == 0)) {
                     
@@ -342,9 +344,31 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //
 void otkritie(int cur_y, int cur_x) {
-    while (ser[cur_y][cur_x] != -1){
+    if (ser[cur_y][cur_x] == -1) {
+        win = -1;
         vis[cur_y][cur_x] = ser[cur_y][cur_x];
+    }
+    else
+    {
 
+
+        while (ser[cur_y][cur_x] != -1 && vis[cur_y][cur_x] == -2) {
+
+
+            vis[cur_y][cur_x] = ser[cur_y][cur_x];
+            if (cur_y != 0) {
+                otkritie(cur_y - 1, cur_x);
+            }
+            if (cur_y != 8) {
+                otkritie(cur_y + 1, cur_x);
+            }
+            if (cur_x != 8) {
+                otkritie(cur_y, cur_x + 1);
+            }
+            if (cur_x != 0) {
+                otkritie(cur_y, cur_x - 1);
+            }
+        }
     }
 }
 
@@ -396,10 +420,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         y = GET_Y_LPARAM(lParam);
         cur_x = x / 31;
         cur_y = y / 31;
-        if (win == 0) {
-            vis[cur_y][cur_x] = ser[cur_y][cur_x];
+        
+            //vis[cur_y][cur_x] = ser[cur_y][cur_x];
+        otkritie(cur_y, cur_x);
             
-        }
+        
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_RBUTTONDOWN:
