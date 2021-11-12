@@ -14,6 +14,7 @@
 #include <time.h>
 #define N 9
 #define M 9
+int win = 0;
 int x, y;
 int ser[N][M] = {
 {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -50,8 +51,8 @@ int vis[N][M] = {
 int i = 0;
 int j = 0;
 int prov_genr = 0;
-int min = 10;
-
+int min = 10;   
+int visualisah = 0;
 
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
@@ -340,6 +341,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - отправить сообщение о выходе и вернуться
 //
 //
+void otkritie(int cur_y, int cur_x) {
+    while (ser[cur_y][cur_x] != -1){
+        vis[cur_y][cur_x] = ser[cur_y][cur_x];
+
+    }
+}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -389,35 +396,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         y = GET_Y_LPARAM(lParam);
         cur_x = x / 31;
         cur_y = y / 31;
-        if (ser[cur_y][cur_x] == -1) {
-            vis[cur_y][cur_x] = -1;
-        }
-        if (ser[cur_y][cur_x] == 0) {
-            vis[cur_y][cur_x] = 0;
-        }
-        if (ser[cur_y][cur_x] == 1) {
-            vis[cur_y][cur_x] = 1;
-        }
-        if (ser[cur_y][cur_x] == 2) {
-            vis[cur_y][cur_x] = 2;
-        }
-        if (ser[cur_y][cur_x] == 3) {
-            vis[cur_y][cur_x] = 3;
-        }
-        if (ser[cur_y][cur_x] == 4) {
-            vis[cur_y][cur_x] = 4;
-        }
-        if (ser[cur_y][cur_x] == 5) {
-            vis[cur_y][cur_x] = 5;
-        }
-        if (ser[cur_y][cur_x] == 6) {
-            vis[cur_y][cur_x] = 6;
-        }
-        if (ser[cur_y][cur_x] == 7) {
-            vis[cur_y][cur_x] = 7;
-        }
-        if (ser[cur_y][cur_x] == 8) {
-            vis[cur_y][cur_x] = 8;
+        if (win == 0) {
+            vis[cur_y][cur_x] = ser[cur_y][cur_x];
+            
         }
         InvalidateRect(hWnd, NULL, TRUE);
         break;
