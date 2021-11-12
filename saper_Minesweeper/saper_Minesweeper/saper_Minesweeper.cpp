@@ -235,35 +235,32 @@ void gener(){
             while (j < 9)
             {
                 if ((ser[i][j] == 0) and (ser_pr[i][j] == 0)) {
+                    chek_1, chek_2, chek_3, chek_4, chek_5, chek_6, chek_7, chek_8 = 0;
                     if (i != 0 && j != 0) {
                         chek_1 = ser[i - 1][j - 1];
-                        
-                    }
-                    else
-                    {
-                        chek_1 = 0;
-                    }
+                    }                    
                     if (i != 0) {
-                        chek_2 = ser[i - 1][j];
+                        chek_2 = ser[i - 1][j];                        
+                    }                  
+                    if (i != 0 && j != 8) {
                         chek_3 = ser[i - 1][j + 1];
                     }
-                    else
-                    {
-                        chek_2 = 0;
-                        chek_3 = 0;
-                    }
-                    chek_5 = ser[i][j+1];
                     if (j != 0) {
                         chek_4 = ser[i][j - 1];
+                    }
+                    if (j != 8) {
+                        chek_5 = ser[i][j + 1];
+                    }                                      
+                    if (i != 8 && j != 0) {
                         chek_6 = ser[i + 1][j - 1];
                     }
-                    else
-                    {
-                        chek_4 = 0;
-                        chek_6 = 0;
+                    if (i != 8) {
+                        chek_7 = ser[i + 1][j];
                     }
-                    chek_7 = ser[i+1][j];
-                    chek_8 = ser[i+1][j+1];
+                    if (i != 8 && j != 8) {
+                        chek_8 = ser[i + 1][j + 1];
+                    }
+                    
                     chek_aoe = (chek_1 + chek_2 + chek_3 + chek_4 + chek_5 + chek_6 + chek_7 + chek_8) / -1;
 
                     if (chek_aoe > 0) {
@@ -395,6 +392,12 @@ void otkritie(int cur_y, int cur_x) {
                 }
                 if (cur_x != 0 && cur_y != 0) {
                     otkritie(cur_y - 1, cur_x - 1);
+                }
+                if (cur_x != 0 && cur_y != 8) {
+                    otkritie(cur_y + 1, cur_x - 1);
+                }
+                if (cur_x != 8 && cur_y != 0) {
+                    otkritie(cur_y - 1, cur_x + 1);
                 }
             }
 
