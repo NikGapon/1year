@@ -187,7 +187,7 @@ void gener(){
     i = 0;
     j = 0;
 
-    srand(time(NULL));
+    //srand(time(NULL));
     while (i < 9)
     {
         while (j < 9)
@@ -235,16 +235,37 @@ void gener(){
             while (j < 9)
             {
                 if ((ser[i][j] == 0) and (ser_pr[i][j] == 0)) {
-                    
-                    chek_1 = ser[i-1][j-1];
-                    chek_2 = ser[i-1][j];
-                    chek_3 = ser[i-1][j+1];
-                    chek_4 = ser[i][j-1];
+                    if (i != 0 && j != 0) {
+                        chek_1 = ser[i - 1][j - 1];
+                        
+                    }
+                    else
+                    {
+                        chek_1 = 0;
+                    }
+                    if (i != 0) {
+                        chek_2 = ser[i - 1][j];
+                        chek_3 = ser[i - 1][j + 1];
+                    }
+                    else
+                    {
+                        chek_2 = 0;
+                        chek_3 = 0;
+                    }
                     chek_5 = ser[i][j+1];
-                    chek_6 = ser[i+1][j-1];
+                    if (j != 0) {
+                        chek_4 = ser[i][j - 1];
+                        chek_6 = ser[i + 1][j - 1];
+                    }
+                    else
+                    {
+                        chek_4 = 0;
+                        chek_6 = 0;
+                    }
                     chek_7 = ser[i+1][j];
                     chek_8 = ser[i+1][j+1];
                     chek_aoe = (chek_1 + chek_2 + chek_3 + chek_4 + chek_5 + chek_6 + chek_7 + chek_8) / -1;
+
                     if (chek_aoe > 0) {
                         ser_pr[i][j] = chek_aoe;
                     }
@@ -385,6 +406,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    
     case WM_COMMAND:
     {
 
@@ -409,7 +431,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         HDC hdc = BeginPaint(hWnd, &ps);
         if (prov_genr == 0) {
 
-            
+
+            srand(time(NULL));
             gener();
             prov_genr = 1;
         }
