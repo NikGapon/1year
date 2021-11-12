@@ -356,18 +356,27 @@ void otkritie(int cur_y, int cur_x) {
 
 
             vis[cur_y][cur_x] = ser[cur_y][cur_x];
-            if (cur_y != 0) {
-                otkritie(cur_y - 1, cur_x);
+            if (ser[cur_y][cur_x] == 0) {
+                if (cur_y != 0) {
+                    otkritie(cur_y - 1, cur_x);
+                }
+                if (cur_y != 8) {
+                    otkritie(cur_y + 1, cur_x);
+                }
+                if (cur_x != 8) {
+                    otkritie(cur_y, cur_x + 1);
+                }
+                if (cur_x != 0) {
+                    otkritie(cur_y, cur_x - 1);
+                }
+                if (cur_x != 8 && cur_y != 8) {
+                    otkritie(cur_y + 1, cur_x + 1);
+                }
+                if (cur_x != 0 && cur_y != 0) {
+                    otkritie(cur_y - 1, cur_x - 1);
+                }
             }
-            if (cur_y != 8) {
-                otkritie(cur_y + 1, cur_x);
-            }
-            if (cur_x != 8) {
-                otkritie(cur_y, cur_x + 1);
-            }
-            if (cur_x != 0) {
-                otkritie(cur_y, cur_x - 1);
-            }
+
         }
     }
 }
@@ -399,6 +408,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hWnd, &ps);
         if (prov_genr == 0) {
+
+            
             gener();
             prov_genr = 1;
         }
