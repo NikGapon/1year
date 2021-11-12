@@ -482,6 +482,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         switch (wParam)
         {
         case VK_TAB:
+            i = 0;
+            j = 0;
+            min = 10;
+            while (i < N)
+            {
+                while (j < M)
+                {
+                    ser_pr[i][j] = 0;
+                    ser[i][j] = 0;
+                    vis[i][j] = -2;
+                    j++;
+                }
+                j = 0;
+                i++;
+            }
+            i = 0;
+            j = 0;
             gener();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
