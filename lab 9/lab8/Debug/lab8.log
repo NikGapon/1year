@@ -1,5 +1,0 @@
-﻿  lab8.cpp
-D:\Yandex_luc\vus\1\1year\lab 9\lab8\lab8.cpp(385,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Yandex_luc\vus\1\1year\lab 9\lab8\lab8.cpp(391,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Yandex_luc\vus\1\1year\lab 9\lab8\lab8.cpp(503): warning C4715: WndProc: значение возвращается не при всех путях выполнения
-  lab8.vcxproj -> D:\Yandex_luc\vus\1\1year\lab 9\Debug\lab8.exe
