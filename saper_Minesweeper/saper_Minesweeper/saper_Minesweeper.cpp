@@ -368,11 +368,7 @@ void otkritie(int cur_y, int cur_x) {
     }
     else
     {
-
-
         while (ser[cur_y][cur_x] != -1 && vis[cur_y][cur_x] == -2) {
-
-
             vis[cur_y][cur_x] = ser[cur_y][cur_x];
             if (ser[cur_y][cur_x] == 0) {
                 if (cur_y != 0) {
@@ -458,7 +454,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         cur_x = x / 31;
         cur_y = y / 31;
         
-            //vis[cur_y][cur_x] = ser[cur_y][cur_x];
+        //vis[cur_y][cur_x] = ser[cur_y][cur_x];
         otkritie(cur_y, cur_x);
             
         
