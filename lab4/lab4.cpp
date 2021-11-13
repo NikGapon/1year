@@ -514,7 +514,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //recurs_krug2(hdc, 200, 200, 100);
 
             //recurs_krug3(hdc, 200, 200, 100);
-            im7(hdc, 200, 200, 100);
+            //im7(hdc, 200, 200, 100);
 
             EndPaint(hWnd, &ps);
         }
