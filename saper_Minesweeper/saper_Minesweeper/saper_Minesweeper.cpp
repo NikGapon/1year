@@ -462,7 +462,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         cur_y = y / 31;
         
         //vis[cur_y][cur_x] = ser[cur_y][cur_x];
-        otkritie(cur_y, cur_x);
+        if (vis[cur_y][cur_x] != -3) {
+            otkritie(cur_y, cur_x);
+        }
             
         
         InvalidateRect(hWnd, NULL, TRUE);
