@@ -235,7 +235,14 @@ void gener(){
             while (j < 9)
             {
                 if ((ser[i][j] == 0) and (ser_pr[i][j] == 0)) {
-                    chek_1, chek_2, chek_3, chek_4, chek_5, chek_6, chek_7, chek_8 = 0;
+                    chek_1 = 0;
+                    chek_2 = 0; 
+                    chek_3 = 0; 
+                    chek_4 = 0; 
+                    chek_5 = 0; 
+                    chek_6 = 0; 
+                    chek_7 = 0; 
+                    chek_8 = 0;
                     if (i != 0 && j != 0) {
                         chek_1 = ser[i - 1][j - 1];
                     }                    
