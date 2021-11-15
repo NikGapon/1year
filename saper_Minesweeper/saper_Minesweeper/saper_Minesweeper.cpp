@@ -102,8 +102,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     return (int) msg.wParam;
 }
 
-int sizeX = 30;
-int sizeY = 30;
+int sizeX = 31;
+int sizeY = 31;
 
 int cur_x, cur_y;
 void draw(HDC hdc) {
@@ -117,11 +117,15 @@ void draw(HDC hdc) {
     hBrushEmptyFLAG = CreateSolidBrush(RGB(150, 200, 200)); // флагнутое поле
     HBRUSH hBrushEmptyBoom;
     hBrushEmptyBoom = CreateSolidBrush(RGB(0, 0, 0)); // бомба
+
+    //HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
+    //SelectObject(hdc, hPen);
+
     while (i < 9)
     {
         while (j < 9)
         {
-            RECT rect = { j * sizeX + 1,i * sizeY + 1,  (j + 1) * sizeX, (i + 1) * sizeY };
+            RECT rect = { j * sizeX + 1, i * sizeY + 1,  j * sizeX + 31, i * sizeY + 31};
             if (vis[i][j] == -2) {
                 FillRect(hdc, &rect, hBrushEmptyNO_VIS);
             }
@@ -325,8 +329,8 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 }
 
 
-int sx = 292;
-int sy = 335;
+int screen_x = 292;
+int screen_y = 335;
 
 
 
@@ -346,7 +350,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // Сохранить маркер экземпляра в глобальной переменной
    
    HWND hWnd = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, CW_USEDEFAULT, sx, sy, NULL, NULL, hInstance, NULL);
+       CW_USEDEFAULT, CW_USEDEFAULT, screen_x, screen_y, NULL, NULL, hInstance, NULL);
 
    if (!hWnd)
    {
