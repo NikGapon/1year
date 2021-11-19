@@ -16,6 +16,7 @@
 #define M 9
 int win = 0;
 int x, y;
+int flag = 0;
 int ser[N][M] = {
 {0, 0, 0, 0, 0, 0, 0, 0, 0},
 {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -52,6 +53,7 @@ int i = 0;
 int j = 0;
 int prov_genr = 0;
 int min = 10;   
+int proverka_1_hod = 0;
 
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
@@ -329,8 +331,8 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 }
 
 
-int screen_x = 292;
-int screen_y = 335;
+int screen_x = 301;
+int screen_y = 360;
 
 
 
@@ -373,6 +375,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - отправить сообщение о выходе и вернуться
 //
 //
+
 void otkritie(int cur_y, int cur_x) {
     if (ser[cur_y][cur_x] == -1) {
         win = -1;
@@ -467,11 +470,40 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         cur_y = y / 31;
         
         //vis[cur_y][cur_x] = ser[cur_y][cur_x];
-        if (vis[cur_y][cur_x] != -3) {
+        if (proverka_1_hod == 0) {
+            proverka_1_hod = 1;
+            while (ser[cur_y][cur_x] == -1) {
+                
+                i = 0;
+                j = 0;
+                min = 10;
+
+                while (i < N)
+                {
+                    while (j < M)
+                    {
+                        ser_pr[i][j] = 0;
+                        ser[i][j] = 0;
+                        vis[i][j] = -2;
+                        j++;
+
+
+                    }
+                    j = 0;
+                    i++;
+                }
+                i = 0;
+                j = 0;
+                gener();
+            
+            }
             otkritie(cur_y, cur_x);
         }
-            
-        
+        else {
+            if (vis[cur_y][cur_x] != -3) {
+                otkritie(cur_y, cur_x);
+            }
+        }
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_RBUTTONDOWN:
@@ -482,10 +514,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         if (vis[cur_y][cur_x] == -2){
             vis[cur_y][cur_x] = -3;
+            flag++;
         }
         else {
             if (vis[cur_y][cur_x] == -3) {
                 vis[cur_y][cur_x] = -2;
+                flag--;
             }
         }
         InvalidateRect(hWnd, NULL, TRUE);
@@ -498,6 +532,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             i = 0;
             j = 0;
             min = 10;
+            flag = 0;
+            win = 0;
+            proverka_1_hod = 0;
+
             while (i < N)
             {
                 while (j < M)
@@ -506,6 +544,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ser[i][j] = 0;
                     vis[i][j] = -2;
                     j++;
+                    
+                    
                 }
                 j = 0;
                 i++;
