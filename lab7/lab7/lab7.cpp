@@ -5,7 +5,7 @@
 #include "lab7.h"
 #include "Header.h"
 #define MAX_LOADSTRING 100
-
+int KArtin = 0;
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
 WCHAR szTitle[MAX_LOADSTRING];                  // Текст строки заголовка
@@ -121,10 +121,126 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - отправить сообщение о выходе и вернуться
 //
 //
+void j(HDC hdc) {
+    if (KArtin == -1) {
+        first_house(hdc);
+    }
+    if (KArtin == 0) {
+        f_gor(hdc);
+    }
+    if (KArtin == 2) {
+        f_ver(hdc);
+    }
+    if (KArtin == 3) {
+        f_diag(hdc);
+    }
+    if (KArtin == 4) {
+        f_riad(hdc);
+    }
+    if (KArtin == 5) {
+        f_p(hdc);
+    }
+    if (KArtin == 6) {
+        el(hdc);
+    }
+    if (KArtin == 7) {
+        was(hdc);
+    }
+    if (KArtin == 8) {
+        centr(hdc);
+    }
+    if (KArtin == 9) {
+        line(hdc);
+    }
+    if (KArtin == 10) {
+        linever(hdc);
+    }
+    if (KArtin == 11) {
+        diag(hdc);
+    }
+    if (KArtin == 12) {
+        riad(hdc);
+    }
+    if (KArtin == 13) {
+        centr_logo(hdc);
+    }
+    if (KArtin == 14) {
+        line_logo(hdc);
+    }
+    if (KArtin == 15) {
+        linever_Logo(hdc);
+    }
+    if (KArtin == 16) {
+        diag_Logo(hdc);
+    }
+    if (KArtin == 17) {
+        riad_Logo(hdc);
+    }
+    if (KArtin == 18) {
+        recurklim1_1(hdc, 200, 160, 80);
+    }
+    if (KArtin == 19) {
+        recurklim1_1(hdc, 200, 160, 80);
+    }
+    if (KArtin == 20) {
+        recurklim1_2(hdc, 200, 160, 80);
+    }
+    if (KArtin == 21) {
+        recurklim1_3(hdc, 200, 160, 80);
+    }
+    if (KArtin == 22) {
+        recurklim1_4(hdc, 200, 160, 80);
+    }
+    if (KArtin == 23) {
+        recurklim1_5(hdc, 200, 160, 80);
+    }
+    if (KArtin == 24) {
+        recurklim1_6(hdc, 200, 160, 80);
+    }
+    if (KArtin == 25) {
+        recurklim1_7(hdc, 200, 160, 80);
+    }
+    if (KArtin == 26) {
+        recurklim1_8(hdc, 200, 160, 80);
+    }
+    if (KArtin == 27) {
+        im7(hdc, 200, 200, 100);
+    }
+    if (KArtin == 28) {
+        recurs_krug3(hdc, 200, 200, 100);
+    }
+    if (KArtin == 29) {
+        OlympicEmblem(hdc);
+        budiln(hdc);
+        oblaka(hdc);
+    }
+    if (KArtin == 30) {
+        Big_PIC(hdc);
+    }
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_KEYDOWN:
+        switch (wParam)
+        {
+        case VK_DOWN:
+            KArtin += 1;
+            InvalidateRect(hWnd, NULL, TRUE);
+            break;
+        case VK_UP:
+            KArtin -= 1;
+            InvalidateRect(hWnd, NULL, TRUE);
+            break;
+        case VK_RETURN:
+            if (KArtin == 5) {
+
+            }
+            break;
+        }
+        break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -147,9 +263,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
-            OlympicEmblem(hdc);
-            budiln(hdc);
-            oblaka(hdc);
+            j(hdc);
             EndPaint(hWnd, &ps);
         }
         break;
