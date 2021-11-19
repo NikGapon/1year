@@ -23,7 +23,7 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 #define M 15
 
 int a[N][M] = {
-{ 3, 0, 1, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0 },
+{ 3, 0, 1, 0, 0,   0, 0, 4, 0, 0,   0, 0, 0, 0, 0 },
 { 0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0 },
 { 0, 0, 0, 0, 2,   0, 0, 0, 0, 0,   0, 0, 0, 4, 0 },
 { 0, 0, 0, 0, 2,   0, 0, 0, 0, 0,   0, 2, 0, 0, 0 },
@@ -38,7 +38,7 @@ int a[N][M] = {
 
 int steps = 0;
 int gold = 0;
-
+int win = 0;
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
@@ -226,7 +226,11 @@ void MoveMonsters() {
                         && j + dj >= 0 && j + dj < M)
                     {
                         a[i][j] = 0;
+                        if (a[i + di][j + dj] == 3) {
+                            win = -1;
+                        }
                         a[i + di][j + dj] = -4;
+                        
                     }
                 }
             }
@@ -246,6 +250,18 @@ void MoveMonsters() {
         i++;
     }
 
+}
+void genergold() {
+    int i, j;
+    int k;
+    for (k = 0; k < 10 / 2; k++) {
+        i = rand() % N;
+        j = rand() % M;
+        if (a[i][j] == 0) {
+            a[i][j] = 1;
+        }
+    }
+    
 }
 void generateLevel() {
     // Коды ячеек
@@ -309,11 +325,29 @@ void moveDown() {
         i--;
     }
 }
+void deadmonster() {
+    int i = 0;
+    while (i < N) {
+        int j = 0;
+        while (j < M) {
+            if (a[i][j] == 4) {
+                if (gold > 3) {
+                    a[i][j] = 0;
+                    gold = gold - 3;
+                }
+            }
+            j++;
+        }
+        i++;
+    }
+}
 int sizeX = 36;
 int sizeY = 30;
 
 void DrawField(HDC hdc) {
-
+    if (win == -1) {
+        TextOutA(hdc, 300, 300, "ВЫ ПРОИГРАЛИ", strlen("400000000000000"));
+    }
     HBRUSH hBrushEmptyCell; //создаём кисть для пустого поля
     hBrushEmptyCell = CreateSolidBrush(RGB(200, 200, 200)); // серый
 
@@ -451,7 +485,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         MoveMonsters(); // перемещаем монстров
         InvalidateRect(hWnd, NULL, TRUE);
         break;
-
+    case WM_DESTROY:
+        PostQuitMessage(0);
+        break;
+    default:
+        return DefWindowProc(hWnd, message, wParam, lParam);
     case WM_PAINT:
     {
         PAINTSTRUCT ps;
@@ -493,8 +531,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             generateLevel();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
-
+        case VK_F1:
+            genergold();
+            InvalidateRect(hWnd, NULL, TRUE);
+        case VK_F2:
+            deadmonster();
+            InvalidateRect(hWnd, NULL, TRUE);
         }
+
         break;
 
     return 0;
