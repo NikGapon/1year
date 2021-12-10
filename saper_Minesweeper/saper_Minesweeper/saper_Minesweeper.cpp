@@ -1,6 +1,6 @@
 ﻿// saper_Minesweeper.cpp : Определяет точку входа для приложения.
 //
-
+#define _CRT_SECURE_NO_WARNINGS
 #include "framework.h"
 #include "saper_Minesweeper.h"
 #define _CRT_SECURE_NO_WARNINGS
@@ -54,6 +54,9 @@ int j = 0;
 int prov_genr = 0;
 int min = 10;   
 int proverka_1_hod = 0;
+int rec = 0;
+int win_prof = 0;
+char filename[] = "safe.txt";
 
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
@@ -122,7 +125,15 @@ void draw(HDC hdc) {
 
     //HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
     //SelectObject(hdc, hPen);
-
+    
+    char sScore[5];
+    TCHAR tsScore[5];
+    sprintf_s(sScore, "%d", flag);
+    OemToChar(sScore, tsScore);
+    TextOut(hdc, 100, 310, tsScore, _tcslen(tsScore));
+    
+    TextOutA(hdc, 20, 290, "ФЛАГОВ ПОСТАВЛЕННО", 32);
+    //TextOutA(hdc, 30, 310, "%d", 50);
     while (i < 9)
     {
         while (j < 9)
@@ -177,6 +188,14 @@ void draw(HDC hdc) {
         }
         j = 0;
         i++;
+    }
+    if (win == 1) {
+        TextOutA(hdc, 50, 144, "ВЫ ПОБЕДИЛИ", 15);
+        rec++;
+    }
+    if (win == -1) {
+        TextOutA(hdc, 50, 144, "ВЫ ПРОИГРАЛИ", 15);
+        rec = 0;
     }
     DeleteObject(TextOutA);
     DeleteObject(hBrushEmptyOpen_0);
@@ -332,7 +351,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 
 
 int screen_x = 301;
-int screen_y = 360;
+int screen_y = 400;
 
 
 
@@ -414,6 +433,72 @@ void otkritie(int cur_y, int cur_x) {
 
         }
     }
+}
+
+void win_condition() {
+    i = 0;
+    j = 0;
+    
+
+    while (i < N)
+    {
+        while (j < M)
+        {
+            if (ser_pr[i][j] == -1) {
+                if (vis[i][j] == -3) {
+                    win_prof += 1;
+                }
+            }
+            j++;
+
+        }
+        j = 0;
+        i++;
+    }
+    i = 0;
+    j = 0;
+    if (win_prof == 10){
+        if (flag == 10) {
+            win = 1;
+        }
+    }
+    win_prof = 0;
+}
+
+
+void Save() {
+    FILE* file = fopen("MAP.txt", "wt");
+
+    for (int i = 0; i < 9; ++i)
+    {
+        for (int j = 0; j < 9; ++j)
+        {
+            fprintf(file, "%d ", ser[i][j]);
+            
+        }
+        fputs("\n", file);
+    }
+
+    fclose(file);
+}
+
+void Load() {
+    FILE* file = fopen("MAP.txt", "r");
+
+    if (file != NULL)
+    {
+
+        for (int i = 0; i < 9; ++i)
+        {
+            for (int j = 0; j < 9; ++j)
+            {
+                fscanf(file, "%d", &ser[i][j]);
+                vis[i][j] = -2;
+            }
+
+        }
+    }
+    fclose(file);
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -513,7 +598,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         cur_y = y / 31;
 
         if (vis[cur_y][cur_x] == -2){
+            
             vis[cur_y][cur_x] = -3;
+            win_condition();
             flag++;
         }
         else {
@@ -524,10 +611,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         InvalidateRect(hWnd, NULL, TRUE);
         break;
-
+    
     case WM_KEYDOWN:
         switch (wParam)
         {
+        case VK_F5:
+            Save();
+            InvalidateRect(hWnd, NULL, TRUE);
+            break;
+        case VK_F6:
+            
+            Load();
+            InvalidateRect(hWnd, NULL, TRUE);
+            break;
         case VK_TAB:
             i = 0;
             j = 0;
