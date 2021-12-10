@@ -57,7 +57,7 @@ int proverka_1_hod = 0;
 int rec = 0;
 int win_prof = 0;
 char filename[] = "safe.txt";
-
+int rec_max = 0;
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
 WCHAR szTitle[MAX_LOADSTRING];                  // Текст строки заголовка
@@ -109,6 +109,25 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 int sizeX = 31;
 int sizeY = 31;
+void REC_CHEK(int h){
+    FILE* file_REC = fopen("REC.txt", "r+");
+    
+    if (file_REC != NULL)
+    {
+        fscanf(file_REC, "%d", &rec_max);
+        if (rec_max < rec) {
+            rec_max = rec;
+            fprintf(file_REC, "%d", rec);
+            
+        }
+    }
+    else
+    {
+        fprintf(file_REC, "%d", rec);
+        rec_max = rec;
+    }
+    fclose(file_REC);
+}
 
 int cur_x, cur_y;
 void draw(HDC hdc) {
@@ -132,8 +151,18 @@ void draw(HDC hdc) {
     OemToChar(sScore, tsScore);
     TextOut(hdc, 100, 310, tsScore, _tcslen(tsScore));
     
-    TextOutA(hdc, 20, 290, "ФЛАГОВ ПОСТАВЛЕННО", 32);
+    TextOutA(hdc, 20, 290, "ФЛАГОВ ПОСТАВЛЕННО", 19);
     //TextOutA(hdc, 30, 310, "%d", 50);
+    TextOutA(hdc, 20, 330, "МАКСИМАЛЬНЫЙ РЕКОРД", 20);
+
+    sprintf_s(sScore, "%d", rec_max);
+    OemToChar(sScore, tsScore);
+    TextOut(hdc, 220, 330, tsScore, _tcslen(tsScore));
+
+    TextOutA(hdc, 20, 350, "ТЕКУЩИЙ РЕКОРД", 19);
+    sprintf_s(sScore, "%d", rec);
+    OemToChar(sScore, tsScore);
+    TextOut(hdc, 220, 350, tsScore, _tcslen(tsScore));
     while (i < 9)
     {
         while (j < 9)
@@ -191,9 +220,10 @@ void draw(HDC hdc) {
     }
     if (win == 1) {
         TextOutA(hdc, 50, 144, "ВЫ ПОБЕДИЛИ", 15);
-        rec++;
+        
     }
     if (win == -1) {
+            
         TextOutA(hdc, 50, 144, "ВЫ ПРОИГРАЛИ", 15);
         rec = 0;
     }
@@ -205,9 +235,11 @@ void draw(HDC hdc) {
 
 
 }
+
 int minazdes;
 int chek_1, chek_2, chek_3, chek_4, chek_5, chek_6, chek_7, chek_8;
 int chek_aoe;
+
 void gener(){
     i = 0;
     j = 0;
@@ -347,11 +379,12 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
+    REC_CHEK(rec);
 }
 
 
 int screen_x = 301;
-int screen_y = 400;
+int screen_y = 440;
 
 
 
@@ -439,7 +472,7 @@ void win_condition() {
     i = 0;
     j = 0;
     
-
+    win_prof = 0;
     while (i < N)
     {
         while (j < M)
@@ -458,8 +491,10 @@ void win_condition() {
     i = 0;
     j = 0;
     if (win_prof == 10){
-        if (flag == 10) {
+        if (flag == 9) {
             win = 1;
+            rec++;
+            REC_CHEK(rec);
         }
     }
     win_prof = 0;
@@ -468,7 +503,7 @@ void win_condition() {
 
 void Save() {
     FILE* file = fopen("MAP.txt", "wt");
-
+    
     for (int i = 0; i < 9; ++i)
     {
         for (int j = 0; j < 9; ++j)
@@ -484,7 +519,7 @@ void Save() {
 
 void Load() {
     FILE* file = fopen("MAP.txt", "r");
-
+    
     if (file != NULL)
     {
 
@@ -616,11 +651,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         switch (wParam)
         {
         case VK_F5:
+            rec = 0;
             Save();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
         case VK_F6:
-            
+            rec = 0;
+            flag = 0;
+            //win = 0;
             Load();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
@@ -631,7 +669,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             flag = 0;
             win = 0;
             proverka_1_hod = 0;
-
+            
             while (i < N)
             {
                 while (j < M)
