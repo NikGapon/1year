@@ -377,9 +377,9 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_SAPERMINESWEEPER);
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
-
-    return RegisterClassExW(&wcex);
     REC_CHEK(rec);
+    return RegisterClassExW(&wcex);
+    
 }
 
 
@@ -658,7 +658,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case VK_F6:
             rec = 0;
             flag = 0;
-            win = 0;
+            //win = 0;
             Load();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
