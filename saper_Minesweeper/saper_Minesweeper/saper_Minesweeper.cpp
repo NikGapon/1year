@@ -658,7 +658,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case VK_F6:
             rec = 0;
             flag = 0;
-            //win = 0;
+            win = 0;
             Load();
             InvalidateRect(hWnd, NULL, TRUE);
             break;
