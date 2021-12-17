@@ -1,0 +1,2 @@
+
+int isDigitMy(char c);
