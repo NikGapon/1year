@@ -1,0 +1,3 @@
+﻿  4.cpp
+D:\Yandex_luc\vus\1\1year\lab13\lab13\4.cpp(77,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  lab13.vcxproj -> D:\Yandex_luc\vus\1\1year\lab13\Debug\lab13.exe

@@ -19,9 +19,9 @@ void F2(int n) {
 	}
 }
 
-void EGE1(int n) { //»« ≈√›
+void EGE1(int n) { 
 	printf("%d ", n);
-	if (n < 6) {
+	if (n < 10) {
 		EGE1(n + 2);
 		EGE1(n * 3);
 	}
@@ -30,7 +30,7 @@ void EGE1(int n) { //»« ≈√›
 void EGE2(int n)
 {
 	printf(" %d", n);
-	if (n > 3)
+	if (n > 4)
 	{
 		EGE2(n - 2);
 		EGE2(n / 2);
@@ -45,6 +45,35 @@ void recEGE1(int n) {
 	}
 }
 
+void svoia1(int n){
+	int i = 2;
+	int s = 0;
+	while(i < n) {
+		if (n % i == 0) {
+			s = 1;
+		}
+		i++;
+	}
+	if (s != 0) {
+		printf(" %d", n);
+		svoia1(n + 1);
+	}
+}
+void svoia2(int n) {
+	int i = 2;
+	int s = 0;
+	while (i < n) {
+		if (n % i == 0) {
+			s++;
+			
+		}
+		i++;
+	}
+	if (s != 2) {
+		printf(" %d", n);
+		svoia1(n + 1);
+	}
+}
 void main() {
 	recEGE1(3);
 	printf("\n");
@@ -55,6 +84,12 @@ void main() {
 	EGE1(1);
 	printf("\n");
 	EGE2(10);
+	printf("\n");
+	printf("\n");
+	svoia1(200);
+	printf("\n");
+	printf("\n");
+	svoia2(7);
 	{
 		int x;
 		scanf("%d", &x);
