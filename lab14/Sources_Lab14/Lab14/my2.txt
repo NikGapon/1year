@@ -1,0 +1,276 @@
+Even though Parisa Ahmadi was in the top of her class at the all-girls Hatifi
+High School in Herat, Afghanistan, her family was initially against her enrolling
+in classes being offered by a private venture that promised to teach young girls
+Internet and social-media skills—and even pay them for their efforts. “Here in
+Afghanistan a woman’s life is limited by her room’s walls and school,” she
+wrote in an e-mail. In Afghanistan, girls are not exposed to the Internet, not at
+home and not at school. That’s the way it might have stayed, too, if Ahmadi
+hadn’t persisted. She was a top student, and she wanted to take even more
+classes. In her mind, that was reason enough. She pressed her family, by her own
+admission, “a lot.”
+The venture backing these classes is the Film Annex, a U.S.-based arts group
+that uses social media and an online site to pay the three hundred thousand
+bloggers and filmmakers who contribute their work. Film Annex ended up in
+Afghanistan by way of its direct affiliation with the Women’s Annex, a digital
+literacy program set up in conjunction with Afghan businesswoman Roya
+Mahboob, which now educates fifty thousand girls in schools across
+Afghanistan. Mahboob is something of a celebrity; named one of the one
+hundred most influential people in the world by Time magazine, she runs a
+software company called Afghan Citadel, is one of the few female CEOs in
+Afghanistan, and has made education for Afghani women her central cause. The
+Women’s Annex sets up its classrooms in local high schools, and the classes are
+taught by women. Because of this last feature, Ahmadi’s family finally relented
+and let her sign up.
+Ahmadi started taking classes in 2013. She and her classmates were learning
+about the World Wide Web, social media, and blogs. A movie lover who also
+loved to write about the movies that moved her, she began posting on a blog, and
+its members responded positively to her reviews, earning her the first real
+income of her young life.
+Still, one of the other things most girls don’t have in Afghanistan is a bank
+account. If the Afghani teen ever had any money, she had to transfer it into her
+father’s or brothers’ bank accounts, and that’s simply the way it is for most girls
+where she lives. In this sense, she was lucky—for many women from her
+background male family members block them from access to their funds and
+treat the money as their own.
+Ahmadi’s luck would change in early 2014. The Film Annex’s New York–
+based founder, Francesco Rulli, aware of the difficulty faced by women like
+Ahmadi and frustrated by the transaction costs he incurred in sending relatively
+small amounts of money around the world, implemented a sweeping change to
+the Film Annex’s payment system. He would pay his bloggers in bitcoin, the
+digital currency that had seemed to come out of nowhere in 2013, with a small,
+fiercely dedicated band of tech-minded, libertarian-leaning digital utopians
+acting as its standard-bearers, and swearing to anybody who’d listen that it was
+going to change the world.
+Rulli, driven by a philosophy that’s a sort of bootstrap capitalism, soon “got”
+bitcoin and gleaned the advantages it could have for people like Ahmadi, who
+was one of more than seven thousand young Afghani women listed as paid
+contributors to the Film Annex. Bitcoins are stored in digital bank accounts or
+“wallets” that can be set up at home by anyone with Internet access. There is no
+trip to the bank to set up an account, no need for documentation or proof that
+you’re a man. Indeed, bitcoin does not know your name or gender, so it allows
+women in patriarchal societies, at least those with access to the Internet, to
+control their own money. The importance of this cannot be overstated. These
+women are building something that is theirs, not their fathers’ or brothers’.
+While not a panacea, this blast of cutting-edge, twenty-first-century technology
+offers real promise as a way to help unshackle an entire swath of the human
+population.
+Many Film Annex contributors in the United States, the United Kingdom,
+Italy, and other rich countries grumbled about the inconvenience of the digital
+currency. Few businesses, online or otherwise, accepted it for payment, and to
+many the whole thing seemed dodgy. The complaints aren’t unique to Film
+Annex contributors; to many people bitcoin seems like a half-baked scam, some
+scheme to sucker fools out of their money. Moreover, Ahmadi contends with the
+same issues related to bitcoin that her peers in other countries had grumbled
+about, in particular that the options for spending it are still limited, especially in
+an economy as underdeveloped as Afghanistan’s. To deal with such problems,
+the Film Annex set up an e-commerce site in 2014 allowing its members to trade
+bitcoins for gift cards from global sites such as Amazon that will ship to Kabul,
+Herat, and other Afghan cities. In effect, Film Annex is creating its own selfenclosed bitcoin economy, an approach it reinforced by changing its trade name
+to BitLanders.
+Ahmadi used her bitcoins to buy a new laptop. Only a few years ago, this
+would have been impossible. She credits bitcoin with “teaching us how to be
+independent and how to decide by our own, and best of all, how to stand on our
+own feet.” It’s allowed her to ponder a future in which she isn’t merely an
+appendage to the men in her life, a future in which she can chart her own course.
+“I see myself an educated and active female doctor in the future,” she said.
+*
+You don’t typically read stories like Ahmadi’s in press coverage of bitcoin. Most
+of it has focused on the roller-coaster ride of what’s seen as a suspect monetary
+concept. Ask people on the street what they know about bitcoin, and if they can
+answer anything at all, they’ll likely cite the most prominent of those press
+reports. They’ll say something about drug dealers who were busted using bitcoin
+on the illicit Silk Road Web site. Or they’ll refer to volatile price movements and
+utter the word bubble. Or they might recall the sudden vanishing of a large
+number of bitcoins from a thing with the Dr. Seuss–esque name of Mt. Gox,
+knowing little more than that it was an obscure online exchange in Tokyo.
+Perhaps they know of the search for Satoshi Nakamoto, the shadowy figure who
+created bitcoin.
+All of these elements of the circus sideshow that has arisen around bitcoin
+are both colorful and important to understanding its story. But to dismiss it as a
+con because of them is to turn your back on something that may well change
+your life. Bitcoin is a groundbreaking digital technology with the potential to
+radically change the way we conduct banking and commerce, and to bring
+billions of people from the emerging markets into a modern, integrated,
+digitized, globalized economy. If it works—and that’s still a big if—an awful lot
+of things that today seem like part of the natural state of the world are going to
+look as antiquated as Gutenberg’s printing press.
+The system we use now for managing exchanges of currency and assets dates
+back to the time of the Medici family of the Florentine Renaissance, when banks
+first assumed dominance in the monetary economy of Europe. These guys were
+the ultimate technological disrupters, radical thinkers who discovered a vital
+need in society and then filled it. In essence, they figured out how to
+intermediate between savers and borrowers, bringing in the excess capital of the
+former and parceling it out to those among the latter who needed it—all for a
+fee. This was a dramatic version of what a Silicon Valley investor would these
+days call a network efficiency. By bringing society’s myriad debts and claims
+into the central ledger of a single bank, the bankers created a powerful, new
+centralized system of trust. With the help of their specialized intermediating
+services, strangers that previously had no way of trusting each other enough to
+do business could now do so. In effect, the Medici created a high-powered
+system of money creation—money being not a physical currency but a system
+for organizing, expanding, and sharing society’s debts and payments. It made
+way for an explosion in mercantile trade, which in turn created the wealth and
+capital that would finance the projects from which great civilizations would
+grow and conquer the world.
+But … by creating this centralized system of trust and then putting
+themselves in the middle of it, banks became extremely powerful—eventually,
+too much so. Since strangers could not do business with each other without the
+banks, the world’s increasingly complex and interconnected economies became
+utterly dependent on the bankers’ intermediation. The ledgers they kept inside
+their institutions became the vital means through which societies kept track of
+the debts and payments that arose among their citizens. Thus the banks created
+the ultimate rent-seeking business, positioning themselves as fee-charging
+gatekeepers, managers of the financial traffic that made economies tick. Anyone
+sitting at the sending or receiving end of that traffic had no choice but to deal
+with a bank—much as Parisa Ahmadi did before the Film Annex changed its
+payment policy. As this new finance business grew and became more complex,
+other rent-seeking middlemen installed themselves as specialized providers of
+intermediated trust—from early bond and securities brokers, to insurance agents,
+to financial lawyers, to the payment processors and credit-card companies of our
+modern day. As it currently works, our high-charged global economic system
+would collapse if these middlemen stopped doing what they do. All of this has
+simply made the banks at the center of it all even more powerful, so much so
+that eventually a system that first empowered people has fostered a dangerous
+dependence upon them. This is what gave rise to the behemoths of Wall Street,
+which would ultimately take the world to the brink of disaster in 2008.
+Enter cryptocurrency—the category to which bitcoin belongs. The simple
+genius of this technology is that it cuts away the middleman yet maintains an
+infrastructure that allows strangers to deal with each other. It does this by taking
+the all-important role of ledger-keeping away from centralized financial
+institutions and handing it to a network of autonomous computers, creating a
+decentralized system of trust that operates outside the control of any one
+institution. At their core, cryptocurrencies are built around the principle of a
+universal, inviolable ledger, one that is made fully public and is constantly being
+verified by these high-powered computers, each essentially acting independently
+of the others. In theory, that means we don’t need banks and other financial
+intermediaries to form bonds of trust on our behalf. The network-based ledger—
+which in the case of most cryptocurrencies is called a blockchain—works as a
+standin for the middlemen since it can just as effectively tell us whether the
+counterparty to a transaction is good for his or her money.
+By eliminating middlemen and their fees, cryptocurrency promises to reduce
+the costs of doing business and to mitigate corruption inside those intermediating
+institutions as well as from the politicians who are drawn into their prosperous
+orbit. The public ledgers used by cryptocurrencies can bring into the open the
+inner workings of an economic-political system that was previously hidden
+within impenetrable, centralized institutions. Indeed, the technology’s potential
+as a force for transparency and accountability goes far beyond money and
+payments, as it can strip out information-controlling middlemen from many
+other forms of human exchange—in elections, for example, where
+cryptocurrency enthusiasts see the capacity to end vote-rigging. At its core, this
+technology is a form of social organization that promises to shift the control of
+money and information away from the powerful elites and deliver it to the
+people to whom it belongs, putting them back in charge of their assets and
+talents.
+If we listen to Mike’s neighbor, Scott Robbins—the same Scott of Pelham,
+New York, whose Middle American skepticism toward globalization also helped
+ground the introduction to The Unfair Trade—it’s clear that many middle-class
+Westerners struggle to grasp how all this might improve their own lives. “I just
+don’t understand why I should give a damn about bitcoin,” Scott said one
+evening. And sure, if we focus narrowly on, say, the 2 or 3 percent savings that
+bitcoin offers on each credit-card transaction fee—a benefit that would typically
+go to merchants—it’s hard to get excited about a “cryptocurrency revolution.”
+But when we consider that world economic output runs to $87 trillion a year,
+and think of how much of that is hived off by the same banks and financial tollcollectors that cryptocurrencies bypass, it’s possible to imagine many trillions of
+dollars in savings. Each of us can stake a claim on those funds, indirectly via the
+employment and income opportunities that businesses might create with what
+they save on financial costs, or directly via the lower interest rates, bank fees,
+and transaction charges by our bank and credit-card accounts. The day you
+started earning and spending money is the day you began repeatedly handing
+over slices of that money to these middlemen, often adding up to millions of
+dollars over a single person’s lifetime. Cryptocurrency promises to stop that
+outflow and put the money back in your pocket. This, in the most basic way, is
+bitcoin’s value proposition—the “Why should I care?” that Scott was looking
+for.
+Cryptocurrency is certainly not without flaws and risks. Some fear that if we
+follow bitcoin’s model, its mechanism for incentivizing computer owners to
+maintain and manage the public ledger—which drives them to compete for
+batches of newly issued bitcoins every ten minutes—could encourage a
+politically disruptive concentration of computing power. So, even as bitcoin
+aims to decentralize monetary power, capitalism’s innate monopolizing
+tendencies could lead some players to accumulate enough computing power to
+seize control of the network and revert a trustworthy, decentralized system back
+to one where self-interested, centralized institutions are in control. Bitcoin is not
+currently under such a threat, and many believe it would never arise because
+computer owners who profit from owning bitcoins have no interest in destroying
+it. Still, the threat cannot be fully eliminated.
+Also, bitcoin and crime have been associated, as seen in the Silk Road case,
+where users sought to exploit the digital currency’s anonymity to sell drugs and
+launder money. Some worry, too, that bitcoin could foment economic crises
+because it strips government policymakers of the capacity to adjust the money
+supply and to offset people’s instinct to hoard it at times of mass panic. We will
+examine these important concerns and show how the community of people
+working on bitcoin is already addressing them.
+There’s no getting around that cryptocurrency is a highly disruptive
+technology. All else being equal, technological disruption makes an economy
+more efficient and creates more wealth overall. But it is never painless. That will
+clearly be evident if cryptocurrency takes hold. It will unleash political tensions
+as millions who’ve made their living from the old system wake up to find their
+jobs are at risk. That backlash is already building, even before the technology is
+properly established, as we’ll witness in the struggles and debates that arise in
+the chapters to follow. The political conflict is not only between those who cling
+to the old system and those who support the new one, but also within the ranks
+of the latter group, as idealists, pragmatists, entrepreneurs, and opportunists
+compete to control cryptocurrency’s future.
+When disruption is driven by a technology associated with money, these
+clashes can be especially intense. However, when the knives are out—
+metaphorically; we’re not yet aware of any bitcoin-related assassinations—it’s
+often a good sign that something big is happening.
+Former U.S. treasury secretary Larry Summers has grasped this. “If you
+think about what a modern economy is all about, it basically involves ever more
+exchange,” he told us. “And exchange, unless it can be literally simultaneous,
+always has real issues of trust. So, what the breakthrough in communications and
+computer science represented in bitcoin does is to support deeper exchange at
+lower price. And that matters both within countries for the traditionally excluded
+and it also matters across international borders.”
+The “issues of trust” to which Summers refers are the core problem that the
+Medici bankers first sought to solve, the dilemma that strangers face when they
+seek to do business with each other. When Summers talks of “the traditionally
+excluded,” he’s making an oblique reference to the “unbanked,” the Parisa
+Ahmadis of the world, the roughly 2.5 billion people from Afghanistan to Africa
+to even America who have been shut out of the modern finance system, who
+don’t have bank accounts with verifiable balances, or credit histories, or any of
+the requirements banks impose for us to do business through them. Without
+access to banking, they are essentially shut out of the modern economy.
+At its core, cryptocurrency is not about the ups and downs of the digital
+currency market; it’s not even about a new unit of exchange to replace the dollar
+or the euro or the yen. It’s about freeing people from the tyranny of centralized
+trust. It speaks to the tantalizing prospect that we can take power away from the
+center—away from banks, governments, lawyers, and the tribal leaders of
+Afghanistan—and transfer it to the periphery, to We, the People.
+*
+So, what exactly is bitcoin? It gets a little confusing because people refer to two
+different things when they talk about bitcoin. The first is the feature that has got
+the most attention: bitcoin the currency, the digital units of value that are used
+by people in exchange for goods and services or other currencies, and whose
+price tends to swing wildly against traditional government-issued currencies. But
+that narrow definition distracts from a broader one that captures bitcoin’s far
+more important contribution, and that is bitcoin the technology—or, as some
+prefer to write it in text, Bitcoin, with a capital B (with the currency always
+referred to with a lower-case b).*
+At its core, bitcoin the technology refers to the system’s protocol, a common
+phrase in software terminology that describes a fundamental set of programming
+instructions that allow computers to communicate with each other. Bitcoin’s
+protocol is run over a network of computers that belong to the many people
+around the world that are charged with maintaining its core blockchain ledger
+and monetary system. It provides those computers with the operating
+instructions and information they need to keep track of and verify transactions
+among people operating within the bitcoin economy. The system employs
+encryption, which lets users key in special passwords to send digital money
+directly to each other without revealing those passwords to any person or
+institution. Just as important, it lays out the steps that computers in the network
+must perform to reach a consensus on the validity of each transaction. Once that
+consensus has been reached, a payee knows that the payer has sufficient funds—
+that the payer isn’t sending counterfeit digital money.
+Now, here’s what gets techies, economists, and futurists most excited about
+bitcoin the technology. They see its open-source protocol as a foundation on
+which to develop new tools for doing commerce and for managing exchanges.
+You can think of it as an operating system. (Because it’s based on open-source
+software, we’d use the analogy of Linux for PCs or Google’s Android for
+smartphones rather than Microsoft’s Windows or Apple’s iOS.) The difference
+is that bitcoin’s operating system is not providing instructions to a single
+computer on how to run itself but to a network of computers on how to interact
+with each other. Its core features are its decentralized model of “trustless” proof
+and an automatically generated database that contains every transaction ever
+completed, is made available to everyone in real time, and can never be
+tampered with. Just as mobile-app makers are busy building applications on top
+of Android, develo

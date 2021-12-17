@@ -1,0 +1,12 @@
+﻿  DictGen.cpp
+  Source.cpp
+  Source1.cpp
+  Source2.cpp
+  Source3.cpp
+C:\Users\Nikolai\Desktop\lab14\Sources_Lab14\Lab14\Source3.cpp(44,6): warning C4101: dif: неиспользованная локальная переменная
+C:\Users\Nikolai\Desktop\lab14\Sources_Lab14\Lab14\Source3.cpp(118,7): warning C4101: s: неиспользованная локальная переменная
+C:\Users\Nikolai\Desktop\lab14\Sources_Lab14\Lab14\Source3.cpp(184,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  Source4.cpp
+  Создание кода...
+  LINK : не найден или не выполнена сборка C:\Users\Nikolai\Desktop\lab14\Sources_Lab14\Debug\Lab14.exe при последней инкрементной компоновке; выполняется полная компоновка
+  Lab14_2019.vcxproj -> C:\Users\Nikolai\Desktop\lab14\Sources_Lab14\Debug\Lab14.exe
