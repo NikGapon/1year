@@ -173,7 +173,12 @@ void stack(struct list* list)
 				}
 				
 			}
-			
+			if (list->head->data != min->data) {
+				if (min->data > min->prev->data) {
+					min = min->prev;
+				}
+			}
+			//cout << min->data;
 			/*cout << "KOK";
 			cout << ptr->data;
 			cout << "\n";
