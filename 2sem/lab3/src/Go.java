@@ -28,6 +28,10 @@ public class Go {
 
                     System.out.println("Complete");
                     break;
+                case(2):
+                    h.printTree();
+                    System.out.println("Complete");
+                    break;
             }
             command = myObj.nextInt();
         }
