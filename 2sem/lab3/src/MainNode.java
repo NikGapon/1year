@@ -24,7 +24,12 @@ public class MainNode {
     public int get_this_Node() {
         return value;
     }
-
+    public void del_right(){
+        this.right = null;
+    }
+    public void del_left(){
+        this.left = null;
+    }
     public MainNode get_right(){
         return this.right;
     }
