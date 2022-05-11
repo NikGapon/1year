@@ -11,11 +11,18 @@ public class table_hash_line_prob {
         int key = value % table.length;
 
 
-        if (key >= table.length / 1.5){
+        if (key + 2 >= table.length){
             int upd_len[];
-            upd_len = new int[table.length * 2];
+            int upd_len_len[];
+            upd_len = new int[table.length + 1];
             System.arraycopy(table, 0, upd_len, 0, table.length);
-            table = upd_len;
+            upd_len_len = new int[upd_len.length * 2];
+            table = upd_len_len;
+            for(int i = 0; i < upd_len.length; i++){
+                if (upd_len[i] != 0){
+                append(upd_len[i]);
+                }
+            }
         }
 
 
@@ -29,6 +36,21 @@ public class table_hash_line_prob {
                 key += 1;
             }
         }
+    }
+    public void del(int del_item){
+        int jj;
+        int ii;
+        ii =  del_item % table.length;
+        jj = ii + 1 ;
+        while ((table[jj] == 0) || (table[jj] % table.length != table[ii] % table.length)){
+            if (table[jj] == 0){
+                table[ii] = 0;
+                return;
+            }
+            jj += 1;
+        }
+        table[ii] = table[jj];
+        del(jj);
     }
 
     public void print(){
