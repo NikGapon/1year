@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25355ecb-fdde-4707-8fe8-f338d0e293e3" name="Changes" comment="" />
+    <list default="true" id="432f7239-772b-478b-abf2-e54e9824ef05" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="28OTc7LYbd5IcYfdPf04b4D3jkF" />
+  <component name="ProjectId" id="291ed4cnLIJuEm6EzhMY1zf5pOP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,53 +30,32 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Yandex_luc/vus/1/1year/2sem/lab3",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "Template Data Languages"
+    "last_opened_file_path": "D:/Yandex_luc/vus/1/1year/2sem/lab3"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Yandex_luc\vus\1\1year\2sem\lab3\src" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.alg">
-    <configuration name="Go" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Go" />
-      <module name="lab3" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="alg" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="alg" />
-      <module name="lab3" />
+  <component name="RunManager">
+    <configuration name="start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="start" />
+      <module name="lab4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.alg" />
-        <item itemvalue="Application.Go" />
+        <item itemvalue="Application.start" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="25355ecb-fdde-4707-8fe8-f338d0e293e3" name="Changes" comment="" />
-      <created>1651086711901</created>
+      <changelist id="432f7239-772b-478b-abf2-e54e9824ef05" name="Changes" comment="" />
+      <created>1652285107730</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1651086711901</updated>
+      <updated>1652285107730</updated>
     </task>
     <servers />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
