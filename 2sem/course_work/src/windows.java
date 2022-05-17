@@ -1,7 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+
+
 import java.util.ArrayList;
 
 
@@ -9,24 +10,31 @@ public class windows extends JFrame{
 
         ArrayList<Integer> main_list = new ArrayList<>();
 
-        ArrayList<String> cash = new ArrayList<>();
+        //ArrayList<String> cash = new ArrayList<>();
 
-
+        Timer timer;
         JFrame frame = new JFrame("binary search");
         String text_add = "";
-        String text_second = "";
+        //String text_second = "";
 
         int result_number_one;
+        boolean Animation = false;
         int result_number_two;
         JLabel main_laibel = new JLabel("");
-        JLabel second_laibel = new JLabel("");
+        //JLabel second_laibel = new JLabel("");
 
+        int Moment_left = 100;
+        int Moment_mid = 0;
+        int Moment_right = 0;
         public void start() {
 
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(1000, 400);
             frame.setLocationRelativeTo(null);
 
+
+            Paint paint = new Paint();
+            frame.add(paint);
 
             JPanel panel = new JPanel(new FlowLayout(3));
             JTextField textField = new JTextField(20);
@@ -37,7 +45,7 @@ public class windows extends JFrame{
             JLabel reuelt_laibel = new JLabel("");
 
             main_laibel.setBounds(500, 200, 150, 50);
-            second_laibel.setBounds(500 - text_add.length() * 2, 210, 1000, 50);
+            //second_laibel.setBounds(500 - text_add.length() * 2, 210, 1000, 50);
 
             button_add.addActionListener(new ActionListener() {
                 @Override
@@ -59,20 +67,13 @@ public class windows extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     int key = Integer.parseInt(textField.getText());
 
-                    second_laibel.setBounds(500 - text_add.length() * 2, 210, 1000, 50);
+                    //second_laibel.setBounds(500 - text_add.length() * 2, 210, 1000, 50);
 
-                    second_laibel.setText(text_second);
+                    //second_laibel.setText(text_second);
 
                     binarySearch(key);
 
-                    for(int i = 0; i == cash.size() - 1; i++){
-                        second_laibel.setText(cash.get(i));
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException a) {
-
-                        }
-                    }
+                    Animation = true;
                     reuelt_laibel.setText("Результат прошлого успешного поиска: " + result_number_one + "   На позиции: " + result_number_two);
                 }
             });
@@ -88,7 +89,7 @@ public class windows extends JFrame{
             panel.add(reuelt_laibel);
 
             frame.add(main_laibel);
-            frame.add(second_laibel);
+            //frame.add(second_laibel);
             frame.add(panel);
 
 
@@ -102,10 +103,10 @@ public class windows extends JFrame{
 
 
             while (low <= high) {
-                text_second = "";
+                //text_second = "";
                 int mid = (low + high) >>> 1;
                 int midVal = main_list.get(mid);
-
+                /*
                 int x = text_add.indexOf("" + main_list.get(low));
                 System.out.println(x);
                 for (int i = 0; i <= x; i++) {
@@ -121,14 +122,14 @@ public class windows extends JFrame{
                 for (int i = 0; i <= x - 8; i++) {
                     text_second += " ";
                 }
-                text_second += "↑high";
+                text_second += "↑high";*/
 
-                System.out.println(text_add);
-                System.out.println(text_second);
+                //System.out.println(text_add);
+                //System.out.println(text_second);
 
 
                 //second_laibel.setText(text_second);
-                cash.add(text_second);
+                //cash.add(text_second);
             /*SwingUtilities.updateComponentTreeUI(frame);
             frame.invalidate();
             frame.validate();
@@ -139,6 +140,8 @@ public class windows extends JFrame{
                 } catch (InterruptedException e) {
 
                 }*/
+
+
                 if (midVal < key) {
                     low = mid + 1;
                 } else if (midVal > key) {
@@ -154,9 +157,50 @@ public class windows extends JFrame{
             //result_number_one = -1;
         }
 
+        public class Paint extends JComponent implements ActionListener {
+            public Paint(){
+                super();
+
+                timer = new Timer(100, this);
+                timer.start();
+            }
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(Animation){
+
+                    //Animation = false;
+                }
+
+
+                repaint();
+                timer.setDelay(100);
+            }
+            public void PaintElements(Graphics g2d){
+                g2d.setColor(Color.BLUE);
+
+                g2d.drawLine(Moment_left, 210, Moment_left - 50, 210);
+                g2d.drawLine(Moment_left, 210, Moment_left - 50, 160);
+                g2d.drawLine(Moment_left, 210, Moment_left, 160);
+
+
+                g2d.setColor(new Color(179, 255, 179));
+                g2d.fillRect(100, 100, 100, 100);
+            }
+            public void paintComponent(Graphics g){
+                super.paintComponent(g);
+                validate ();
+                System.out.println("dadadada");
+                Graphics2D g2d = (Graphics2D) g;
+                PaintElements(g2d);
+
+            }
+        }
+
         public static void main(String[] args) {
             windows start = new windows();
             start.start();
+            start.pack();
             start.setVisible(true);
 
 
