@@ -17,7 +17,7 @@ public class windows extends JFrame{
         //JFrame frame = new JFrame("binary search");
         String text_add = "";
         //String text_second = "";
-
+        int cof = 5;
 
         int result_number_one;
         boolean Animation = false;
@@ -116,10 +116,10 @@ public class windows extends JFrame{
                 int midVal = main_list.get(mid);
 
                 int x = text_add.indexOf(" " + main_list.get(low)) + 1;
-                cash_left.add(200 + x);
+                cash_left.add(200 + x * cof);
 
                 x = text_add.indexOf(" " + main_list.get(high)) + 1;
-                cash_right.add(200 + x);
+                cash_right.add(200 + x * cof);
 
                 if (midVal < key) {
                     low = mid + 1;
@@ -129,7 +129,7 @@ public class windows extends JFrame{
                     result_number_two = mid;
                     result_number_one = main_list.get(mid);
                     x = text_add.indexOf(" " + main_list.get(mid)) + 1;
-                    cash_mid.add(200 + x);
+                    cash_mid.add(200 + x * cof);
                     break;
                     //return ;
                 }
@@ -190,6 +190,12 @@ public class windows extends JFrame{
 
                         Moment_left += 1;
                     }
+                    else if (Moment_right > go_right) {
+                        Moment_right -= 1;
+                    }
+                    else if (Moment_right < go_right) {
+                        Moment_right += 1;
+                    }
 
                     else if (Moment_mid > go_mid) {
                         Moment_mid -= 1;
@@ -198,12 +204,7 @@ public class windows extends JFrame{
                         Moment_mid += 1;
                     }
 
-                    else if (Moment_right > go_right) {
-                        Moment_right -= 1;
-                    }
-                    else if (Moment_right < go_right) {
-                        Moment_right += 1;
-                    }
+
 
 
                     //Animation = false;
