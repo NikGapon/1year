@@ -33,7 +33,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Yandex_luc/test&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.windows">
+  <component name="RunManager" selected="Application.test">
     <configuration name="MainWin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainWin" />
       <module name="course_work" />
@@ -71,8 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.windows" />
         <item itemvalue="Application.test" />
+        <item itemvalue="Application.windows" />
         <item itemvalue="Application.cuers_work" />
         <item itemvalue="Application.paint_field" />
         <item itemvalue="Application.MainWin" />
