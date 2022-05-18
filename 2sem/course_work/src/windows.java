@@ -68,7 +68,7 @@ public class windows extends JFrame{
                     Animation = true;
                     //main_laibel.setText(text_add);
 
-                    System.out.println(main_list);
+                    //System.out.println(main_list);
 
                 }
             });
@@ -115,9 +115,11 @@ public class windows extends JFrame{
                 int mid = (low + high) >>> 1;
                 int midVal = main_list.get(mid);
 
-                int x = text_add.indexOf("" + main_list.get(low)) + 1;
-                //System.out.println(x);
-                cash_left.add(500 - text_add.length() * 2 + x);
+                int x = text_add.indexOf(" " + main_list.get(low)) + 1;
+                cash_left.add(200 + x);
+
+                x = text_add.indexOf(" " + main_list.get(high)) + 1;
+                cash_right.add(200 + x);
 
                 if (midVal < key) {
                     low = mid + 1;
@@ -126,6 +128,8 @@ public class windows extends JFrame{
                 } else {
                     result_number_two = mid;
                     result_number_one = main_list.get(mid);
+                    x = text_add.indexOf(" " + main_list.get(mid)) + 1;
+                    cash_mid.add(200 + x);
                     break;
                     //return ;
                 }
@@ -149,54 +153,55 @@ public class windows extends JFrame{
                         if (cash_left.size() > 0 || cash_mid.size() > 0 || cash_right.size() > 0) {
 
                             if (cash_left.size() > 0) {
-                                //System.out.println(cash_left);
+
                                 x = cash_left.get(0);
-                                Moment_left = 500 - text_add.length() * 2;
+                                //System.out.println(x);
+                                Moment_left = 200;
                                 cash_left.remove(0);
-                                go_left = x + 500 - text_add.length() * 2;
+                                go_left = x;
 
                             }
-                            if (cash_mid.size() > 0) {
-                                Moment_mid = 500 - text_add.length();
+                             if (cash_mid.size() > 0) {
+                                Moment_mid = 500;
                                 x = cash_mid.get(0);
                                 cash_mid.remove(0);
-                                go_mid = x + 500 - text_add.length() * 2;
+                                go_mid = x;
 
                             }
-                            if (cash_right.size() > 0) {
-                                Moment_right = 500 + text_add.length() * 2;
+                             if (cash_right.size() > 0) {
+                                Moment_right = 900;
                                 x = cash_right.get(0);
                                 cash_right.remove(0);
-                                go_right = x + 500 - text_add.length() * 2;
+                                go_right = x;
 
                             }
-                        } else {
+                        }
+                        else {
                             Animation = false;
                         }
                     }
-
+                }
                     //System.out.println("dadadada");
                     //System.out.println(Moment_left + "  " + go_left);
                     if (Moment_left > go_left) {
-
                         Moment_left -= 1;
                     }
-                    if (Moment_left < go_left) {
+                    else if (Moment_left < go_left) {
 
                         Moment_left += 1;
                     }
 
-                    if (Moment_mid > go_mid) {
+                    else if (Moment_mid > go_mid) {
                         Moment_mid -= 1;
                     }
-                    if (Moment_mid < go_mid) {
+                    else if (Moment_mid < go_mid) {
                         Moment_mid += 1;
                     }
 
-                    if (Moment_right > go_right) {
+                    else if (Moment_right > go_right) {
                         Moment_right -= 1;
                     }
-                    if (Moment_right < go_right) {
+                    else if (Moment_right < go_right) {
                         Moment_right += 1;
                     }
 
@@ -204,17 +209,32 @@ public class windows extends JFrame{
                     //Animation = false;
                     repaint();
                     timer.setDelay(10);
-                }
+
             }
             public void PaintElements(Graphics g2d){
                 g2d.setColor(Color.BLUE);
-                //System.out.println(1);
+
                 g2d.drawLine(Moment_left, 215, Moment_left - 50, 215);
                 g2d.drawLine(Moment_left, 215, Moment_left - 50, 265);
                 g2d.drawLine(Moment_left, 215, Moment_left, 265);
 
+
+
+                g2d.setColor(Color.RED);
+
+                g2d.drawLine(Moment_right, 200, Moment_right + 50, 200);
+                g2d.drawLine(Moment_right, 200, Moment_right + 50, 150);
+                g2d.drawLine(Moment_right, 200, Moment_right, 150);
+
                 g2d.setColor(Color.BLACK);
-                g2d.drawString(text_add, 500 - text_add.length() * 2, 210);
+
+                g2d.drawLine(Moment_mid, 200, Moment_mid + 25, 175);
+                g2d.drawLine(Moment_mid, 200, Moment_mid - 25, 175);
+                g2d.drawLine(Moment_mid, 200, Moment_mid, 200);
+
+
+                g2d.setColor(Color.BLACK);
+                g2d.drawString(text_add, 200, 210);
                 //g2d.setColor(new Color(170, 255, 0));
                 //g2d.fillRect(100, 100, 100, 100);
             }
