@@ -26,13 +26,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Yandex_luc/test"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Yandex_luc/test&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.windows">
     <configuration name="MainWin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainWin" />
@@ -41,8 +41,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="cuers_work" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cuers_work" />
+      <module name="course_work" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="paint_field" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="paint_field" />
+      <module name="course_work" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
       <module name="course_work" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -58,6 +72,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.windows" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.cuers_work" />
         <item itemvalue="Application.paint_field" />
         <item itemvalue="Application.MainWin" />
       </list>
