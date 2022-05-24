@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class start {
     public static void main(String[] args) {
         table_hash_line_prob h = new table_hash_line_prob();
@@ -23,5 +26,21 @@ public class start {
         h.print();
         h.del(555);
         h.print();*/
+
+        System.out.println("____________________________________");
+        taibel2 g = new taibel2();
+        g.Create(10);
+        g.append(10);
+        g.append(5);
+        g.append(50);
+        g.append(40);
+
+        g.append(1500);
+        g.append(500);
+        g.append(1501);
+        g.append(1769);
+        g.print();
+        g.del(1501);
+        g.print();
     }
 }
