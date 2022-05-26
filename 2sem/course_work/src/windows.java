@@ -137,16 +137,16 @@ public class windows extends JFrame{
                 int midVal = main_list.get(mid);
 
                 int x = text_add.indexOf(" " + main_list.get(low));
-                cash_left.add(200 + x * coefficient_skale);
-
+                cash_left.add(200 + (x - 2) * coefficient_skale);
+                System.out.println(x);
 
                 x = text_add.indexOf(" " + main_list.get(high));
-                cash_right.add(200 + x * coefficient_skale);
+                cash_right.add(200 + x  * coefficient_skale);
 
 
 
                 x = text_add.indexOf(" " + main_list.get(mid));
-                cash_mid.add(200 + x * coefficient_skale);
+                cash_mid.add(200 + (x - 2) * coefficient_skale);
 
                 if (midVal < key) {
                     low = mid + 1;
