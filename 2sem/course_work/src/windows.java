@@ -17,7 +17,7 @@ public class windows extends JFrame{
         //JFrame frame = new JFrame("binary search");
         String text_add = "";
         //String text_second = "";
-        int coefficient_skale = 6;
+        int coefficient_skale = 5;
 
         int result_number_one;
         boolean Animation = false;
@@ -136,17 +136,17 @@ public class windows extends JFrame{
                 int mid = (low + high) >>> 1;
                 int midVal = main_list.get(mid);
 
-                int x = text_add.indexOf(" " + main_list.get(low));
-                cash_left.add(200 + (x - 2) * coefficient_skale);
-                System.out.println(x);
+                int x = text_add.indexOf(main_list.get(low) + " ");
+                cash_left.add(200 + x * coefficient_skale);
+                //System.out.println(x);
 
-                x = text_add.indexOf(" " + main_list.get(high));
+                x = text_add.indexOf(main_list.get(high) + " ");
                 cash_right.add(200 + x  * coefficient_skale);
 
 
 
-                x = text_add.indexOf(" " + main_list.get(mid));
-                cash_mid.add(200 + (x - 2) * coefficient_skale);
+                x = text_add.indexOf(main_list.get(mid) + " ");
+                cash_mid.add(200 + (x+1) * coefficient_skale);
 
                 if (midVal < key) {
                     low = mid + 1;
@@ -155,8 +155,8 @@ public class windows extends JFrame{
                 } else {
                     result_number_two = mid;
                     result_number_one = main_list.get(mid);
-                    x = text_add.indexOf(" " + main_list.get(mid));
-                    cash_mid.add(200 + x * coefficient_skale);
+                    x = text_add.indexOf(main_list.get(mid) + " ");
+                    cash_mid.add(200 + (x + 1) * coefficient_skale);
                     break;
                 }
             }
